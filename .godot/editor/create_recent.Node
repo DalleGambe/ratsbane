@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+AnimationPlayer
+RichTextLabel
+WorldEnvironment
+Control
+HSlider
+Node
+Node2D
+Sprite2D
+CharacterBody2D
+Timer
+GPUParticles2D
+RandomAudioPlayerComponent

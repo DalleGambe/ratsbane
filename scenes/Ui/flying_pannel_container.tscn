@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk5u4hcygxmwj"]
+
+[ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="1_2yviy"]
+[ext_resource type="Script" path="res://scenes/Ui/flying_pannel_container.gd" id="1_e8pxo"]
+[ext_resource type="AudioStream" uid="uid://ckrn3uhrl6jxj" path="res://assets/audio/sfx/pause_menu/pause_game.wav" id="2_arfkt"]
+[ext_resource type="AudioStream" uid="uid://b2pdoebejl05l" path="res://assets/audio/sfx/pause_menu/unpause_game.wav" id="3_5w6js"]
+
+[sub_resource type="Animation" id="Animation_n5ia6"]
+resource_name = "fly in"
+length = 0.4
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -250), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SfxPlayerComponent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["pause_menu", 0.0],
+"method": &"play_requested_track"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hdv0a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -250)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oq3po"]
+_data = {
+"RESET": SubResource("Animation_hdv0a"),
+"fly in": SubResource("Animation_n5ia6")
+}
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(175, 175)
+offset_top = -250.0
+offset_right = 175.0
+offset_bottom = -75.0
+script = ExtResource("1_e8pxo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_oq3po")
+}
+
+[node name="SfxPlayerComponent" parent="." instance=ExtResource("1_2yviy")]
+min_pitch = 1.0
+max_pitch = 1.0
+audio_stream_list = Array[AudioStream]([ExtResource("2_arfkt"), ExtResource("3_5w6js")])

@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://c234j3ul6qqr8"]
+
+[ext_resource type="Script" path="res://scenes/Manager/EnemyManager/enemy_manager.gd" id="1_hftj1"]
+[ext_resource type="PackedScene" uid="uid://b76xob2qa5xsc" path="res://scenes/Monster/Bat_Enemy/BatEnemy.tscn" id="2_gxko2"]
+[ext_resource type="PackedScene" uid="uid://vv48l7vbua4j" path="res://scenes/Monster/Knight_Enemy/knight_enemy.tscn" id="2_hu4rj"]
+[ext_resource type="PackedScene" uid="uid://5a7qbohb16oo" path="res://scenes/Monster/Ranger_Enemy/ranger_enemy.tscn" id="4_l4tj3"]
+[ext_resource type="PackedScene" uid="uid://ccy6eihds3kfn" path="res://scenes/Monster/Sorcerer_Apprentice/sorcerer_apprentice_enemy.tscn" id="5_7t8of"]
+[ext_resource type="PackedScene" uid="uid://ccx4kont4hmvv" path="res://scenes/Monster/Bosses/KnightBoss/KnightBoss.tscn" id="6_j7jyr"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_hftj1")
+basic_enemy_scene = ExtResource("2_gxko2")
+knight_enemy_scene = ExtResource("2_hu4rj")
+ranger_enemy_scene = ExtResource("4_l4tj3")
+sorcerer_apprentice_enemy_scene = ExtResource("5_7t8of")
+upgraded_knight_scene = ExtResource("6_j7jyr")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

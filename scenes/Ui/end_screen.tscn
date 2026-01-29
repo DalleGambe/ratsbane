@@ -1,0 +1,205 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvwvn10vx4x6y"]
+
+[ext_resource type="Script" path="res://scenes/Ui/end_screen.gd" id="1_psrr1"]
+[ext_resource type="PackedScene" uid="uid://bio16yutlh531" path="res://scenes/Ui/animated_label.tscn" id="2_mnxv3"]
+[ext_resource type="PackedScene" uid="uid://pg6jic4xnaw1" path="res://scenes/Ui/sound_button.tscn" id="3_xj8q2"]
+[ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="4_dtb1t"]
+[ext_resource type="AudioStream" uid="uid://cgjceusm85o81" path="res://assets/audio/sfx/end_screen/defeat_jingle_1.wav" id="5_q4xbj"]
+[ext_resource type="AudioStream" uid="uid://chtwpnv2j233x" path="res://assets/audio/sfx/end_screen/victory_jingle_1.wav" id="6_3a53k"]
+
+[sub_resource type="Animation" id="Animation_qq4lk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u40nn"]
+resource_name = "fade in"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.619608)]
+}
+
+[sub_resource type="Animation" id="Animation_si8j8"]
+resource_name = "fade out"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.619608), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gx3v"]
+_data = {
+"RESET": SubResource("Animation_qq4lk"),
+"fade in": SubResource("Animation_u40nn"),
+"fade out": SubResource("Animation_si8j8")
+}
+
+[node name="EndScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_psrr1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3gx3v")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.14902, 0.168627, 0.266667, 0.619608)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_mnxv3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 40
+text = "VICTORY_LABEL"
+displayed_text = "VICTORY_LABEL"
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "VICTORY_DESCRIPTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerLastedLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "VICTORY_TIME_IN_ARENA_LABEL:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "FINAL_SCORE_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_xj8q2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "RESTART_BUTTON"
+
+[node name="UpgradesButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_xj8q2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "UPGRADES_BUTTON"
+
+[node name="AchievementsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_xj8q2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "ACHIEVEMENTS_BUTTON"
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_xj8q2")]
+unique_name_in_owner = true
+process_mode = 3
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "QUIT_BUTTON"
+
+[node name="JinglePlayer" parent="." instance=ExtResource("4_dtb1t")]
+unique_name_in_owner = true
+bus = &"Sfx"
+min_pitch = 1.0
+max_pitch = 1.0
+audio_stream_list = Array[AudioStream]([ExtResource("5_q4xbj"), ExtResource("6_3a53k")])

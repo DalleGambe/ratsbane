@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcgco5sf0sgrg"
+path="res://.godot/imported/flip_card_to_back.wav-de1d4cf7c8f52193170c0081db1c270e.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/upgrade card/old/flip_card_to_back.wav"
+dest_files=["res://.godot/imported/flip_card_to_back.wav-de1d4cf7c8f52193170c0081db1c270e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

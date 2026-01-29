@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://drutfg6ovh4pp"]
+
+[ext_resource type="Texture2D" uid="uid://clv01xvb8ku2w" path="res://assets/abilities/AxeAbility/double_blade_axe.png" id="1_4wwiu"]
+[ext_resource type="Script" path="res://scenes/Ability/AxeAbility/axe_ability.gd" id="1_qsy3u"]
+[ext_resource type="Shader" path="res://resources/shaders/glowing_border.gdshader" id="2_4621m"]
+[ext_resource type="PackedScene" uid="uid://bhthan6ngau2w" path="res://scenes/Component/HitboxComponent/hit_box_component.tscn" id="3_ydeh1"]
+
+[sub_resource type="Animation" id="Animation_4bslt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tutc7"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 2.82843),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ud0dm"]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwsif"]
+_data = {
+"RESET": SubResource("Animation_4bslt"),
+"default": SubResource("Animation_tutc7"),
+"disappear": SubResource("Animation_ud0dm")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xmxr"]
+shader = ExtResource("2_4621m")
+shader_parameter/color1 = Color(0.639, 0.361, 0.865, 1)
+shader_parameter/color2 = Color(0.549, 0.204, 0.792, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/time = null
+shader_parameter/glow_speed = 1.0
+shader_parameter/intensity = 1.5
+shader_parameter/edge_softness = 1.0
+shader_parameter/glow_is_active = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkkqx"]
+radius = 17.0
+
+[node name="AxeAbility" type="Node2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_qsy3u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_fwsif")
+}
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_0xmxr")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_4wwiu")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("3_ydeh1")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_qkkqx")

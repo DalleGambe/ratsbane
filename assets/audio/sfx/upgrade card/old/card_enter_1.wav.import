@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmb4q1l3pcokj"
+path="res://.godot/imported/card_enter_1.wav-0e63d805fd63420a9bc0d94a5e5558cd.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/upgrade card/old/card_enter_1.wav"
+dest_files=["res://.godot/imported/card_enter_1.wav-0e63d805fd63420a9bc0d94a5e5558cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

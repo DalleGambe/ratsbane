@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcr8b6noyin4i"]
+
+[ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="1_8yora"]
+[ext_resource type="Script" path="res://scenes/Ui/blur_vignette.gd" id="1_ctytd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vy7dr"]
+shader = ExtResource("1_8yora")
+shader_parameter/blur_amount = 1.0
+
+[node name="BlurVignette" type="CanvasLayer" groups=["blurshader"]]
+script = ExtResource("1_ctytd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_vy7dr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.00392157)

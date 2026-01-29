@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://d6j02af2sfb4"]
+
+[ext_resource type="Texture2D" uid="uid://ba37ln243j6qg" path="res://assets/achievements/end game/no_mercy.png" id="1_baa31"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_0rjc5"]
+
+[resource]
+script = ExtResource("2_0rjc5")
+id = "no_mercy"
+title = "NO_MERCY_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 5
+description = "NO_MERCY_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_baa31")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3

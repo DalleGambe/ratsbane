@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccx4kont4hmvv"]
+
+[ext_resource type="Script" path="res://scenes/Monster/Bosses/KnightBoss/knight_boss.gd" id="1_3b0ms"]
+[ext_resource type="PackedScene" uid="uid://cr5u7q0jvdgku" path="res://scenes/Component/HealthComponent/health_component.tscn" id="2_8rkgj"]
+[ext_resource type="PackedScene" uid="uid://buxfdux1b1bn" path="res://scenes/Component/VelocityComponent/velocity_component.tscn" id="2_uf813"]
+[ext_resource type="Texture2D" uid="uid://b8xv203a1htr1" path="res://assets/monsters/Knight/knight_1.png" id="3_lvf7l"]
+[ext_resource type="PackedScene" uid="uid://b3g31a0xma1uo" path="res://scenes/Component/HurtboxComponent/hurtbox_component.tscn" id="4_o1k5r"]
+[ext_resource type="Script" path="res://scenes/Monster/Bosses/KnightBoss/attack_state_machine.gd" id="4_rbx1l"]
+[ext_resource type="Script" path="res://scenes/Monster/Bosses/KnightBoss/additional_attack_state_machine.gd" id="5_4ffg4"]
+[ext_resource type="PackedScene" uid="uid://cdsgd1iyk7brk" path="res://scenes/Component/BloodSplatterComponent/BloodSplatterComponent.tscn" id="6_oyncv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t7y6r"]
+radius = 23.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7kdq"]
+radius = 23.0
+height = 84.0
+
+[node name="KnightBoss" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_3b0ms")
+boss_title = "Fat boy"
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_8rkgj")]
+unique_name_in_owner = true
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_uf813")]
+unique_name_in_owner = true
+
+[node name="AttackStateMachine" type="Node" parent="."]
+script = ExtResource("4_rbx1l")
+
+[node name="AdditionalAttackStateMachine" type="Node" parent="."]
+script = ExtResource("5_4ffg4")
+
+[node name="BloodSplatterComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_oyncv")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_lvf7l")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "blood_splatter_component") instance=ExtResource("4_o1k5r")]
+collision_layer = 264
+collision_mask = 12
+health_component = NodePath("../HealthComponent")
+blood_splatter_component = NodePath("../BloodSplatterComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CapsuleShape2D_t7y6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w7kdq")

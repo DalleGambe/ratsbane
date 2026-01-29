@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bgd3lvx7xbcc8"]
+
+[ext_resource type="PackedScene" uid="uid://taa0e8consk2" path="res://scenes/Ability/BombAbility/BombAbilityController.tscn" id="1_872q2"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="1_bdkwk"]
+
+[resource]
+script = ExtResource("1_bdkwk")
+ability_controller_scene = ExtResource("1_872q2")
+id = "bomb_ability"
+name = "BOMB_ABILITY_NAME"
+description = "BOMB_ABILITY_DESCRIPTION"
+amount_that_can_be_picked = 1
+values = {}
+flavour_class = 0

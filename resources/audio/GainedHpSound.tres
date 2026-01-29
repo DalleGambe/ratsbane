@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://c5eop5mswacwt"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_ll5yj"]
+[ext_resource type="AudioStream" uid="uid://bhpc0d3w8jm85" path="res://assets/audio/sfx/Ui/heal_sfx.wav" id="2_n5gud"]
+
+[resource]
+script = ExtResource("1_ll5yj")
+limit = 5
+type = 4
+sound_effects = Array[AudioStream]([ExtResource("2_n5gud")])
+volume = 6
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false

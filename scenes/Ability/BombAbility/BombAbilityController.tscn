@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://taa0e8consk2"]
+
+[ext_resource type="Script" path="res://scenes/Ability/BombAbility/bomb_ability_controller.gd" id="1_0jsy8"]
+[ext_resource type="PackedScene" uid="uid://g3w1a7bm7nt5" path="res://scenes/Ability/BombAbility/bomb_ability.tscn" id="2_rkp6m"]
+
+[node name="BombAbilityController" type="Node"]
+script = ExtResource("1_0jsy8")
+bomb_ability_scene = ExtResource("2_rkp6m")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.6
+autostart = true
+
+[node name="TempTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

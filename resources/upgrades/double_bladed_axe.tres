@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://du44spjjvehus"]
+
+[ext_resource type="PackedScene" uid="uid://diedvug6a6djq" path="res://scenes/Ability/AxeAbility/axe_ability_controller.tscn" id="1_4k0qy"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="1_od30h"]
+
+[resource]
+script = ExtResource("1_od30h")
+ability_controller_scene = ExtResource("1_4k0qy")
+id = "double_bladed_axe"
+name = "DOUBLE_BLADED_AXE_NAME"
+description = "DOUBLE_BLADED_AXE_DESCRIPTION"
+amount_that_can_be_picked = 1
+values = {}
+flavour_class = 0

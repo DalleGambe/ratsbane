@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://ciqui6d8pog1y"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_rp6y5"]
+[ext_resource type="AudioStream" uid="uid://ifjfcd2jjilu" path="res://assets/audio/sfx/projectiles/arcane_missile_explosion_3.wav" id="2_nld3c"]
+
+[resource]
+script = ExtResource("1_rp6y5")
+limit = 2
+type = 7
+sound_effects = Array[AudioStream]([ExtResource("2_nld3c")])
+volume = -6
+pitch_scale = 1.2
+min_pitch = 0.6
+max_pitch = 1.3
+randomize_pitch = true
+pitch_randomness = 1.0
+is_consecutive = false

@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://76ob7sbfk0be"]
+
+[ext_resource type="Script" path="res://scenes/Ability/SpearAbility/spear_ability.gd" id="1_ikhfr"]
+[ext_resource type="Texture2D" uid="uid://b6p1cmbq1n4p2" path="res://assets/abilities/SpearAbility/spear.png" id="1_nda6d"]
+[ext_resource type="PackedScene" uid="uid://bhthan6ngau2w" path="res://scenes/Component/HitboxComponent/hit_box_component.tscn" id="2_jbtjp"]
+[ext_resource type="Shader" path="res://resources/shaders/glowing_border.gdshader" id="2_w4jeq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnd6c"]
+shader = ExtResource("2_w4jeq")
+shader_parameter/color1 = Color(0.639216, 0.360784, 0.835294, 1)
+shader_parameter/color2 = Color(0.54902, 0.203922, 0.792157, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/time = 0.0
+shader_parameter/glow_speed = 1.0
+shader_parameter/intensity = 1.5
+shader_parameter/edge_softness = 1.0
+shader_parameter/glow_is_active = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_664gg"]
+radius = 9.0
+height = 20.0
+
+[sub_resource type="Animation" id="Animation_t683v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3j3et"]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mey8s"]
+_data = {
+"RESET": SubResource("Animation_t683v"),
+"disappear": SubResource("Animation_3j3et")
+}
+
+[node name="SpearAbility" type="Node2D"]
+script = ExtResource("1_ikhfr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tnd6c")
+position = Vector2(0, 5.5)
+texture = ExtResource("1_nda6d")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("2_jbtjp")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(9, -4)
+shape = SubResource("CapsuleShape2D_664gg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_mey8s")
+}

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://dqjqtxjop5ejp"]
+
+[ext_resource type="Texture2D" uid="uid://c68gnbeb44fox" path="res://assets/achievements/end game/persistent_legend.png" id="1_di1vx"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_niev0"]
+
+[resource]
+script = ExtResource("2_niev0")
+id = "persistent_legend"
+title = "PERSISTENT_LEGEND_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 750000
+description = "PERSISTENT_LEGEND_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_di1vx")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

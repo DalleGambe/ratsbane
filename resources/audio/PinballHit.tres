@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://c86x3up2mg3gi"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_abs1t"]
+[ext_resource type="AudioStream" uid="uid://dfqktqs16thx6" path="res://assets/audio/sfx/abilities/pinball/pinball_hit_1.wav" id="2_pwjlo"]
+
+[resource]
+script = ExtResource("1_abs1t")
+limit = 2
+type = 6
+sound_effects = Array[AudioStream]([ExtResource("2_pwjlo")])
+volume = 16
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 1.0
+is_consecutive = false

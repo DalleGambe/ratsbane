@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://djwjsliejq7bm"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_wupic"]
+[ext_resource type="AudioStream" uid="uid://c5vqlw5eyn7j2" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_prepared_1.wav" id="2_daui6"]
+
+[resource]
+script = ExtResource("1_wupic")
+limit = 3
+type = 3
+sound_effects = Array[AudioStream]([ExtResource("2_daui6")])
+volume = -6
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false

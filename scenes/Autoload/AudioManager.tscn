@@ -1,0 +1,140 @@
+[gd_scene load_steps=27 format=3 uid="uid://djbeilw748bf"]
+
+[ext_resource type="Script" path="res://scenes/Autoload/audio_manager.gd" id="1_ivpyh"]
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="2_0lqym"]
+[ext_resource type="AudioStream" uid="uid://cj6dh4gmqh5x5" path="res://assets/audio/sfx/exp_pick_up/exp_pickup_1.wav" id="3_7e1wg"]
+[ext_resource type="AudioStream" uid="uid://fe053f70qsnj" path="res://assets/audio/sfx/exp_pick_up/coin_pickup_1.wav" id="4_rh1p0"]
+[ext_resource type="AudioStream" uid="uid://deodr3kmfvsnw" path="res://assets/audio/sfx/abilities/bomb/bomb_explosion_1.wav" id="4_wef6w"]
+[ext_resource type="AudioStream" uid="uid://dmd0occs7m73c" path="res://assets/audio/sfx/abilities/bomb/bomb_explosion_2.wav" id="5_m7jsy"]
+[ext_resource type="AudioStream" uid="uid://buy4r7y4i3ku7" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_1.wav" id="6_onw4f"]
+[ext_resource type="AudioStream" uid="uid://bckew0bx6jlgn" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_2.wav" id="7_koxhi"]
+[ext_resource type="AudioStream" uid="uid://b0sy6uruffrgp" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_3.wav" id="8_kswqa"]
+[ext_resource type="AudioStream" uid="uid://rloqppf6ldgm" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_4.wav" id="9_8qshw"]
+[ext_resource type="AudioStream" uid="uid://bxkxykfhahpri" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_5.wav" id="10_jpti0"]
+[ext_resource type="AudioStream" uid="uid://c5vqlw5eyn7j2" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_prepared_1.wav" id="11_ht1lv"]
+[ext_resource type="AudioStream" uid="uid://bhpc0d3w8jm85" path="res://assets/audio/sfx/Ui/heal_sfx.wav" id="12_eumnr"]
+[ext_resource type="AudioStream" uid="uid://i5i5qn36xinj" path="res://assets/audio/sfx/player/rat/charge.wav" id="12_hnbcq"]
+[ext_resource type="AudioStream" uid="uid://cpv3fdgd3dgy3" path="res://assets/audio/sfx/Ui/ability_ready.wav" id="13_2gp2g"]
+[ext_resource type="AudioStream" uid="uid://ifjfcd2jjilu" path="res://assets/audio/sfx/projectiles/arcane_missile_explosion_3.wav" id="13_txo34"]
+[ext_resource type="AudioStream" uid="uid://dyuvasudsw1mg" path="res://assets/audio/sfx/projectiles/arcane_missile_summon.wav" id="14_yesqg"]
+
+[sub_resource type="Resource" id="Resource_b2hdl"]
+script = ExtResource("2_0lqym")
+limit = 10
+type = 0
+sound_effects = Array[AudioStream]([ExtResource("3_7e1wg"), ExtResource("4_rh1p0")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = true
+
+[sub_resource type="Resource" id="Resource_uglch"]
+script = ExtResource("2_0lqym")
+limit = 2
+type = 1
+sound_effects = Array[AudioStream]([ExtResource("4_wef6w"), ExtResource("5_m7jsy")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_jhpae"]
+script = ExtResource("2_0lqym")
+limit = 5
+type = 2
+sound_effects = Array[AudioStream]([ExtResource("6_onw4f"), ExtResource("7_koxhi"), ExtResource("8_kswqa"), ExtResource("9_8qshw"), ExtResource("10_jpti0")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_put8v"]
+script = ExtResource("2_0lqym")
+limit = 5
+type = 3
+sound_effects = Array[AudioStream]([ExtResource("11_ht1lv")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_mq6fq"]
+script = ExtResource("2_0lqym")
+limit = 2
+type = 4
+sound_effects = Array[AudioStream]([ExtResource("12_eumnr")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_l05mx"]
+script = ExtResource("2_0lqym")
+limit = 2
+type = 7
+sound_effects = Array[AudioStream]([ExtResource("13_txo34")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_7rub8"]
+script = ExtResource("2_0lqym")
+limit = 5
+type = 8
+sound_effects = Array[AudioStream]([ExtResource("14_yesqg")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_aukob"]
+script = ExtResource("2_0lqym")
+limit = 10
+type = 10
+sound_effects = Array[AudioStream]([ExtResource("13_2gp2g")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[sub_resource type="Resource" id="Resource_81xuc"]
+script = ExtResource("2_0lqym")
+limit = 5
+type = 9
+sound_effects = Array[AudioStream]([ExtResource("12_hnbcq")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ivpyh")
+sound_effect_settings = Array[ExtResource("2_0lqym")]([SubResource("Resource_b2hdl"), SubResource("Resource_uglch"), SubResource("Resource_jhpae"), SubResource("Resource_put8v"), SubResource("Resource_mq6fq"), SubResource("Resource_l05mx"), SubResource("Resource_7rub8"), SubResource("Resource_aukob"), SubResource("Resource_81xuc")])

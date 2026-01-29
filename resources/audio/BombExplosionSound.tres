@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://fm4v24ar2bio"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_a7qcx"]
+[ext_resource type="AudioStream" uid="uid://deodr3kmfvsnw" path="res://assets/audio/sfx/abilities/bomb/bomb_explosion_1.wav" id="2_jlcmm"]
+
+[resource]
+script = ExtResource("1_a7qcx")
+limit = 3
+type = 1
+sound_effects = Array[AudioStream]([ExtResource("2_jlcmm")])
+volume = 4
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 1.0
+is_consecutive = false

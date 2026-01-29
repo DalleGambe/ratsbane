@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://fyq2c6tm0g7m"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_7atl7"]
+
+[resource]
+script = ExtResource("1_7atl7")
+id = "bombastic"
+name = "Bombastic"
+description = "BOMBASTIC_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"explosion_radius_percentage": 25
+}
+flavour_class = 0

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://c3lhrdfuwvgaa"]
+
+[ext_resource type="Texture2D" uid="uid://dq2ejcdc1x0yy" path="res://assets/achievements/shop/it_is_yours_my_friend.png" id="1_jhwkc"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_pvhyu"]
+
+[resource]
+script = ExtResource("2_pvhyu")
+id = "it_is_yours_my_friend"
+title = "IT_IS_YOURS_MY_FRIEND_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "IT_IS_YOURS_MY_FRIEND_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_jhwkc")
+started_at = "N/A"
+completed_on = "N/A"
+category = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://2nfnwowknco0"]
+
+[ext_resource type="Texture2D" uid="uid://dwkcgl7gksg8a" path="res://assets/achievements/end game/choices_are_hard.png" id="1_7gek5"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="1_uxfcv"]
+
+[resource]
+script = ExtResource("1_uxfcv")
+id = "choices_are_hard"
+title = "CHOICES_ARE_HARD_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "CHOICES_ARE_HARD_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_7gek5")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

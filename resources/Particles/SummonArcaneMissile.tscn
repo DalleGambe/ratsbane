@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsgupa7r0wpuh"]
+
+[sub_resource type="Gradient" id="Gradient_2ew6q"]
+offsets = PackedFloat32Array(0.265455, 0.298182, 0.52, 0.76, 0.992727, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.443137, 0.270588, 0.843137, 1, 0.69177, 0.425042, 0.918481, 1, 0.960784, 0.592157, 1, 1, 0.996078, 0.878431, 0.992157, 1, 0.996078, 0.878431, 0.992157, 0)
+
+[node name="SummonArcaneMissile" type="CPUParticles2D"]
+amount = 16
+speed_scale = 0.2
+emission_shape = 2
+emission_sphere_radius = 4.0
+spread = 90.0
+gravity = Vector2(100, 100)
+orbit_velocity_min = 100.0
+orbit_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_2ew6q")

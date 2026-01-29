@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dao0tk2e12vfm"]
+
+[ext_resource type="Script" path="res://scenes/Ability/PinballAbility/pinball_ability_controller.gd" id="1_6n6t0"]
+[ext_resource type="PackedScene" uid="uid://b8k171eu5f1c4" path="res://scenes/Ability/PinballAbility/PinballAbility.tscn" id="2_8v4yf"]
+
+[node name="PinballAbilityController" type="Node"]
+script = ExtResource("1_6n6t0")
+pinball_ability_scene = ExtResource("2_8v4yf")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.35
+autostart = true

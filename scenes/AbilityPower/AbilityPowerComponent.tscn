@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s4jcpobuq7hx"]
+
+[ext_resource type="Script" path="res://scenes/AbilityPower/ability_power_component.gd" id="1_8pu3e"]
+
+[node name="AbilityPowerComponent" type="Node"]
+script = ExtResource("1_8pu3e")

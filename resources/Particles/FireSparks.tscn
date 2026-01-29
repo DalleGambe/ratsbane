@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://6jlae5r4jmtq"]
+
+[node name="ArcaneExplosion" type="CPUParticles2D"]

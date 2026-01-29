@@ -1,0 +1,13 @@
+[gd_scene load_steps=8 format=3 uid="uid://dl6isnfw7yqve"]
+
+[ext_resource type="Script" path="res://scenes/Autoload/meta_upgrade_manager.gd" id="1_eacu6"]
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="2_wy1js"]
+[ext_resource type="Resource" uid="uid://bt15lb2dw8ar0" path="res://resources/meta_upgrades/free_start_upgrade.tres" id="3_nn7o1"]
+[ext_resource type="Resource" uid="uid://ckdm8t0jjeauw" path="res://resources/meta_upgrades/gain_experience.tres" id="4_4ok2r"]
+[ext_resource type="Resource" uid="uid://7aa7oxli4all" path="res://resources/meta_upgrades/more_health.tres" id="5_f0i3p"]
+[ext_resource type="Resource" uid="uid://h1b5ccjx5yuf" path="res://resources/meta_upgrades/more_options.tres" id="6_meinl"]
+[ext_resource type="Resource" uid="uid://ddpb1bengdkko" path="res://resources/meta_upgrades/telekinetic_reach.tres" id="7_lr1em"]
+
+[node name="MetaUpgradeManager" type="Node"]
+script = ExtResource("1_eacu6")
+meta_upgrades = Array[ExtResource("2_wy1js")]([ExtResource("3_nn7o1"), ExtResource("4_4ok2r"), ExtResource("5_f0i3p"), ExtResource("6_meinl"), ExtResource("7_lr1em")])

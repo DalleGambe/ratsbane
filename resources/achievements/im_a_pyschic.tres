@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://bw8aykpf60ejp"]
+
+[ext_resource type="Texture2D" uid="uid://dqyg4m3ebmcoc" path="res://assets/achievements/end game/im_a_pyschic.png" id="1_o0a86"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_vrbsu"]
+
+[resource]
+script = ExtResource("2_vrbsu")
+id = "im_a_pyschic"
+title = "IM_A_PSYCHIC_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "IM_A_PSYCHIC_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_o0a86")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

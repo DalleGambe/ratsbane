@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7dkmsuxsqych"]
+
+[ext_resource type="Script" path="res://scenes/Ui/MapSelectScreen/modifier_card.gd" id="1_3uqe3"]
+[ext_resource type="Shader" path="res://resources/shaders/glowing_border.gdshader" id="1_qbqp1"]
+[ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="2_ib8so"]
+[ext_resource type="AudioStream" uid="uid://c22th3j1qr5rg" path="res://assets/audio/sfx/upgrade card/card_enter_1.wav" id="3_8eo0l"]
+[ext_resource type="Texture2D" uid="uid://dgep3da82w2tt" path="res://assets/player/player.png" id="6_p5joi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ushpe"]
+resource_local_to_scene = true
+shader = ExtResource("1_qbqp1")
+shader_parameter/color1 = Color(0.639, 0.361, 0.865, 1)
+shader_parameter/color2 = Color(0.549, 0.204, 0.792, 1)
+shader_parameter/width = 0.26
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(2, 2)
+shader_parameter/time = null
+shader_parameter/glow_speed = 1.0
+shader_parameter/intensity = 1.5
+shader_parameter/edge_softness = 1.0
+shader_parameter/glow_is_active = true
+
+[sub_resource type="Animation" id="Animation_keutj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ghto"]
+resource_name = "selected"
+length = 0.4
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgyji"]
+_data = {
+"RESET": SubResource("Animation_keutj"),
+"selected": SubResource("Animation_6ghto")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4l6f"]
+shader = ExtResource("1_qbqp1")
+shader_parameter/color1 = Color(0.639, 0.361, 0.865, 1)
+shader_parameter/color2 = Color(0.549, 0.204, 0.792, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/time = null
+shader_parameter/glow_speed = 1.0
+shader_parameter/intensity = 1.5
+shader_parameter/edge_softness = 1.0
+shader_parameter/glow_is_active = true
+
+[node name="ModiferCard" type="PanelContainer" groups=["meta_upgrade_card"]]
+material = SubResource("ShaderMaterial_ushpe")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -62.0
+offset_right = 71.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(201, 76)
+script = ExtResource("1_3uqe3")
+
+[node name="AudioPlayerComponent" parent="." instance=ExtResource("2_ib8so")]
+unique_name_in_owner = true
+bus = &"Sfx"
+min_pitch = 1.0
+max_pitch = 1.0
+audio_stream_list = Array[AudioStream]([ExtResource("3_8eo0l")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_cgyji")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CardContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CardContainer"]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/CardContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ModifierIcon" type="TextureRect" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_m4l6f")
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_p5joi")
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/CardContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.14902, 0.168627, 0.266667, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CardContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ModifierTitleLabel" type="Label" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 8
+text = "One shot mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/CardContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.14902, 0.168627, 0.266667, 1)

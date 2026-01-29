@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gvwplexv4fcj"]
+
+[ext_resource type="Script" path="res://scenes/Monster/Bosses/BasicBoss/basic_boss.gd" id="1_d4kwu"]
+
+[node name="BasicBoss" type="CharacterBody2D"]
+script = ExtResource("1_d4kwu")

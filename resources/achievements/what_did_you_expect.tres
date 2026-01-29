@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://b4ru24oiko15c"]
+
+[ext_resource type="Texture2D" uid="uid://bllgialgu2iht" path="res://assets/achievements/none/what_did_you_expect.png" id="1_rg7dp"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_exwxm"]
+
+[resource]
+script = ExtResource("2_exwxm")
+id = "what_did_you_expect"
+title = "WHAT_DID_YOU_EXPECT_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "WHAT_DID_YOU_EXPECT_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_rg7dp")
+started_at = "N/A"
+completed_on = "N/A"
+category = 0
+target_goal_is_dynamic = false

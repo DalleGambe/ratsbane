@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjsg838ecrsf2"]
+
+[ext_resource type="Script" path="res://scenes/Manager/ExperienceManager/experience_manager.gd" id="1_usfok"]
+
+[node name="ExperienceManager" type="Node"]
+script = ExtResource("1_usfok")
+
+[node name="SfxCollectReset" type="Timer" parent="."]
+wait_time = 2.0

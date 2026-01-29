@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cxqsmuwp5fchx"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_7vlxe"]
+
+[resource]
+script = ExtResource("1_7vlxe")
+id = "matryoshka_bomb"
+name = "MATRYOSHKA_BOMB_NAME"
+description = "MATRYOSHKA_BOMB_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"baby_bomb_count": 3
+}
+flavour_class = 0

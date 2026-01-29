@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://jfdsh62yxlxo"]
+
+[ext_resource type="Texture2D" uid="uid://cnn8f6c2gsr0w" path="res://assets/achievements/shop/i_will_take_your_entire_stock.png" id="1_e6gxp"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_b7viu"]
+
+[resource]
+script = ExtResource("2_b7viu")
+id = "i_will_take_your_entire_stock"
+title = "I_WILL_TAKE_YOUR_ENTIRE_STOCK_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 8
+description = "I_WILL_TAKE_YOUR_ENTIRE_STOCK_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_e6gxp")
+started_at = "N/A"
+completed_on = "N/A"
+category = 1
+target_goal_is_dynamic = true

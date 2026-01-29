@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://ii7xc1v4mmcg"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_hna1a"]
+
+[resource]
+script = ExtResource("1_hna1a")
+id = "sword_rate"
+name = "SLICE_SLICE_NAME"
+description = "SLICE_SLICE_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"increased_sword_rate": 20.0
+}
+flavour_class = 0

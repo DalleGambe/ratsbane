@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://b2sif8ksf715k"]
+
+[ext_resource type="Texture2D" uid="uid://bp2qjphubih8r" path="res://assets/achievements/end game/fake_it_till_you_make_it.png" id="1_w02il"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_owbiu"]
+
+[resource]
+script = ExtResource("2_owbiu")
+id = "fake_it_till_you_make_it"
+title = "FAKE_IT_TILL_YOU_MAKE_IT_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "FAKE_IT_TILL_YOU_MAKE_IT_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_w02il")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

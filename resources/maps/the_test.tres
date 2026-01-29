@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Map" load_steps=8 format=3 uid="uid://btn6feohmcdfr"]
+
+[ext_resource type="Script" path="res://resources/game_modes/game_mode.gd" id="1_4va2v"]
+[ext_resource type="Script" path="res://resources/modifiers/modifier.gd" id="1_o88ee"]
+[ext_resource type="Script" path="res://resources/maps/map_object.gd" id="2_nr1y3"]
+[ext_resource type="Texture2D" uid="uid://dgep3da82w2tt" path="res://assets/player/player.png" id="3_m5dwg"]
+[ext_resource type="Script" path="res://resources/maps/map.gd" id="3_sgt3v"]
+[ext_resource type="Texture2D" uid="uid://biv7gaipqcagm" path="res://assets/stats/the_courtyard_placeholder.png" id="4_o863r"]
+
+[sub_resource type="Resource" id="Resource_ve8ny"]
+script = ExtResource("1_o88ee")
+id = "one_shot"
+title = "ONE_SHOT_MODIFIER_TITLE"
+description = "ONE_SHOT_MODIFIER_DESCRIPTION"
+is_active = false
+has_been_beaten = false
+is_unlocked = true
+icon = ExtResource("3_m5dwg")
+
+[resource]
+script = ExtResource("3_sgt3v")
+id = "the_test"
+number_id = 2
+title = "THE_TEST_MAP_NAME"
+description = "THE_TEST_MAP_DESCRIPTION"
+music_track_name = "pixel"
+base_volume_of_track = -16
+thumbnail = ExtResource("4_o863r")
+time_before_door_opens = 301.0
+times_played = 0
+amount_of_wins = 0
+amount_of_losses = 0
+best_highscore = 0.0
+best_time_in_seconds = 0
+last_score = 0.0
+last_time_in_seconds = 0
+available_game_modes = Array[ExtResource("1_4va2v")]([])
+tile_map_layer_name = "TheCourtyardMapLayout"
+modifiers = Array[ExtResource("1_o88ee")]([SubResource("Resource_ve8ny")])
+map_objects = Array[ExtResource("2_nr1y3")]([])
+is_unlocked = true

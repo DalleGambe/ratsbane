@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr3ek8xuaugpv"]
+
+[ext_resource type="Script" path="res://scenes/Manager/ArenaTimeManager/arena_time_manager.gd" id="1_je31w"]
+[ext_resource type="PackedScene" uid="uid://cvwvn10vx4x6y" path="res://scenes/Ui/end_screen.tscn" id="2_f2qfh"]
+[ext_resource type="Script" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.gd" id="3_5gx83"]
+[ext_resource type="AudioStream" uid="uid://ojpj0u8tnf2x" path="res://assets/audio/sfx/Ui/one_minute_left.wav" id="4_tlucs"]
+
+[node name="ArenaTimeManager" type="Node"]
+script = ExtResource("1_je31w")
+end_screen = ExtResource("2_f2qfh")
+
+[node name="TimeLeft" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 600000.0
+autostart = true
+
+[node name="OpenDoorTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 301.0
+one_shot = true
+
+[node name="DifficultyIntervalTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 8.0
+
+[node name="MusicMomentumTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="RandomSteamPlayerComponent" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+bus = &"Sfx"
+script = ExtResource("3_5gx83")
+min_pitch = 1.0
+max_pitch = 1.0
+audio_stream_list = Array[AudioStream]([ExtResource("4_tlucs")])

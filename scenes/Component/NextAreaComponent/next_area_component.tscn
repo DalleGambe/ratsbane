@@ -1,0 +1,223 @@
+[gd_scene load_steps=17 format=3 uid="uid://c6kghh3sc55c2"]
+
+[ext_resource type="Script" path="res://next_area_area_2d.gd" id="1_3vk0j"]
+[ext_resource type="Texture2D" uid="uid://kqi56t2gravh" path="res://assets/environment/walls/brick_wall.png" id="2_7trsi"]
+[ext_resource type="Script" path="res://scenes/Component/RandomAudioPlayerComponent/random_audio_player_component.gd" id="2_84shn"]
+[ext_resource type="AudioStream" uid="uid://b26vkohxr0bsj" path="res://assets/audio/sfx/Environment/door/appear/door_plop_1.wav" id="3_201vo"]
+[ext_resource type="Texture2D" uid="uid://de7nlmxd0wg7i" path="res://assets/environment/doors/single_brick_door.png" id="3_lvmql"]
+[ext_resource type="Texture2D" uid="uid://rlsc85e1xjts" path="res://assets/environment/doors/single_brick_door_closed.png" id="4_nuecy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtxof"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxif2"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_h1cki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/WallSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o85tr"]
+resource_name = "close_door"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_door_texture"
+}, {
+"args": [true],
+"method": &"set_door_texture"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5hg5n"]
+resource_name = "reveal_door"
+step = 0.025
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.975),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"set_door_texture"
+}, {
+"args": [],
+"method": &"set_wall_texture"
+}, {
+"args": [],
+"method": &"set_door_texture"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/WallSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:collision_layer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextArea/CollisionDoorDetectionShape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RandomAudioPlayerComponent")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["door_plop_1", 0.0, 0.0],
+"method": &"play_random_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ov8v3"]
+_data = {
+"RESET": SubResource("Animation_h1cki"),
+"close_door": SubResource("Animation_o85tr"),
+"reveal_door": SubResource("Animation_5hg5n")
+}
+
+[sub_resource type="Curve" id="Curve_acd0m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.496667, 1), 0.0, 0.0, 0, 0, Vector2(0.99, 0.0328418), 0.0, 0.0, 0, 0, Vector2(0.996667, 0.0328418), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_hvlv1"]
+curve = SubResource("Curve_acd0m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2es82"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 200.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 125.0
+initial_velocity_max = 175.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_hvlv1")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gs4v"]
+radius = 12.0416
+
+[node name="NextAreaComponent" type="CharacterBody2D" groups=["next_area_door"]]
+process_mode = 3
+collision_mask = 0
+script = ExtResource("1_3vk0j")
+wall_sprite = ExtResource("2_7trsi")
+door_sprite = ExtResource("3_lvmql")
+door_sprite_closed = ExtResource("4_nuecy")
+
+[node name="NextArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionDoorDetectionShape" type="CollisionShape2D" parent="NextArea"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_rtxof")
+disabled = true
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="DoorSprite2D" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="WallSprite2D" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nxif2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ov8v3")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+rotation = -0.74557
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_2es82")
+one_shot = true
+fixed_fps = 0
+interpolate = false
+
+[node name="RandomAudioPlayerComponent" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("2_84shn")
+audio_stream_list = Array[AudioStream]([ExtResource("3_201vo")])
+
+[node name="GuardDoorDetectionRange" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardDoorDetectionRange"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_4gs4v")
+disabled = true
+debug_color = Color(0.768627, 0.227451, 0.188235, 0.745098)

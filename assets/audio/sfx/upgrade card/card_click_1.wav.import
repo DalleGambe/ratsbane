@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wp4h18dpe0py"
+path="res://.godot/imported/card_click_1.wav-096b100b811673b6b94c87680c35d369.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/upgrade card/card_click_1.wav"
+dest_files=["res://.godot/imported/card_click_1.wav-096b100b811673b6b94c87680c35d369.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

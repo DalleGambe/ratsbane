@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bio16yutlh531"]
+
+[ext_resource type="Script" path="res://scenes/Ui/animated_label.gd" id="1_sn2lj"]
+
+[sub_resource type="Animation" id="Animation_7cjm4"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ocgax"]
+resource_name = "up_and_down"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64hrh"]
+_data = {
+"RESET": SubResource("Animation_7cjm4"),
+"up_and_down": SubResource("Animation_ocgax")
+}
+
+[node name="AnimatedLabel" type="Label"]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_bottom = 72.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 11
+theme_override_constants/outline_size = 19
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 72
+text = "rat"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_sn2lj")
+
+[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_64hrh")
+}
+autoplay = "up_and_down"

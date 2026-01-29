@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://jwae70vetuuo"]
+
+[ext_resource type="Script" path="res://scenes/Manager/MapManager/map_manager.gd" id="1_fdvci"]
+[ext_resource type="Script" path="res://resources/maps/map.gd" id="2_sf813"]
+[ext_resource type="Resource" uid="uid://nlk3us3r1jwn" path="res://resources/maps/the_courtyard.tres" id="3_8jmcs"]
+[ext_resource type="Resource" uid="uid://btn6feohmcdfr" path="res://resources/maps/the_test.tres" id="4_gaugv"]
+
+[node name="MapManager" type="Node"]
+script = ExtResource("1_fdvci")
+maps = Array[ExtResource("2_sf813")]([ExtResource("3_8jmcs"), ExtResource("4_gaugv")])

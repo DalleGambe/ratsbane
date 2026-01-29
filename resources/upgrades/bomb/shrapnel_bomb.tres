@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://ckexsgln81uix"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_4bsyu"]
+
+[resource]
+script = ExtResource("1_4bsyu")
+id = "shrapnel_bomb"
+name = "SHRAPNEL_BOMB_NAME"
+description = "SHRAPNEL_BOMB_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"amount_of_shrapnel": 4
+}
+flavour_class = 0

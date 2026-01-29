@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://by16ncihp8the"]
+
+[ext_resource type="Texture2D" uid="uid://cydkbgykx18f2" path="res://assets/achievements/end game/i_should_have_retired.png" id="1_b2d02"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_nboqn"]
+
+[resource]
+script = ExtResource("2_nboqn")
+id = "i_should_have_retired"
+title = "I_SHOULD_HAVE_RETIRED_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 5
+description = "I_SHOULD_HAVE_RETIRED_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_b2d02")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3

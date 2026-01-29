@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://lrf31bml3yys"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_o4loo"]
+
+[resource]
+script = ExtResource("1_o4loo")
+id = "plasma_sword"
+name = "PLASMA_SWORD_NAME"
+description = "PLASMA_SWORD_DESCRIPTION"
+amount_that_can_be_picked = 1
+values = {}
+flavour_class = 0

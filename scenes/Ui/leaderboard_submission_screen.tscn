@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpgs2es7rf76m"]
+
+[ext_resource type="Script" path="res://scenes/Ui/leaderboard_submission_screen.gd" id="1_vo53w"]
+[ext_resource type="PackedScene" uid="uid://bio16yutlh531" path="res://scenes/Ui/animated_label.tscn" id="2_qb1ax"]
+[ext_resource type="PackedScene" uid="uid://pg6jic4xnaw1" path="res://scenes/Ui/sound_button.tscn" id="3_gvpue"]
+[ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="4_tbyld"]
+
+[node name="LeaderboardSubmissionScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_vo53w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_qb1ax")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 40
+text = "NEW_HIGHSCORE_LABEL"
+vertical_alignment = 0
+displayed_text = "New Highscore"
+
+[node name="PlayerLastedLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "Time spent in arena:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "FINAL_SCORE_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "Playername"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerNameInputField" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "enter your name here"
+max_length = 24
+clear_button_enabled = true
+
+[node name="HboxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="SubmitScoreButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HboxContainer" instance=ExtResource("3_gvpue")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUBMIT_SCORE_BUTTON"
+
+[node name="JinglePlayer" parent="." instance=ExtResource("4_tbyld")]
+unique_name_in_owner = true
+bus = &"Sfx"
+min_pitch = 1.0
+max_pitch = 1.0

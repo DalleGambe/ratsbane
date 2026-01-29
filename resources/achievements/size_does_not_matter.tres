@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://dioarokwaqfmh"]
+
+[ext_resource type="Texture2D" uid="uid://cvei05078bqtx" path="res://assets/achievements/end game/size_does_not_matter.png" id="1_78no5"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_itpsa"]
+
+[resource]
+script = ExtResource("2_itpsa")
+id = "size_does_not_matter"
+title = "SIZE_DOES_NOT_MATTER_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 250000
+description = "SIZE_DOES_NOT_MATTER_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_78no5")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

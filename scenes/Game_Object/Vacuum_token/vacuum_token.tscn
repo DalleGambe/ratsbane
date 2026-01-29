@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg0tijy0w5wft"]
+
+[ext_resource type="Script" path="res://scenes/Game_Object/Vacuum_token/vacuum_token.gd" id="1_lpsvn"]
+[ext_resource type="Texture2D" uid="uid://cqei4j3uh3fan" path="res://assets/pickups/vacuum_token.png" id="2_vcrix"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fx7y"]
+
+[node name="VacuumToken" type="Node2D" groups=["tokens"]]
+script = ExtResource("1_lpsvn")
+
+[node name="CollectArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_3fx7y")
+
+[node name="TokenSprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vcrix")

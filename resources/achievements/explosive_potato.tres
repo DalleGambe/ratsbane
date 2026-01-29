@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://1vbnw7q81eno"]
+
+[ext_resource type="Texture2D" uid="uid://dw3x3gd53krjd" path="res://assets/achievements/end game/explosive_potato.png" id="1_0i4ac"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_slahk"]
+
+[resource]
+script = ExtResource("2_slahk")
+id = "explosive_potato"
+title = "EXPLOSIVE_POTATO_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "EXPLOSIVE_POTATO_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_0i4ac")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

@@ -1,0 +1,26 @@
+# -- Godot 4.x Specific --
+.godot/                # Internal cache, imported data, and local editor settings
+
+# -- Mono/C# Specific (Safe to keep even if not using C#) --
+.mono/
+*.sln
+*.csproj
+.vs/
+
+# -- Security and Personal Config --
+# Export presets often contain passwords or local paths
+export_presets.cfg
+# Personal editor layout
+editor_layout.cfg
+
+# -- OS / Editor Junk --
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# -- Build Artifacts --
+# Best practice is to export to a 'builds' or 'dist' folder
+build/
+dist/
+bin/

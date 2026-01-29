@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cc0ubhc18rvs"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ad32y"]
+
+[resource]
+script = ExtResource("1_ad32y")
+id = "more_boom"
+name = "MORE_BOOM_NAME"
+description = "MORE_BOOM_DESCRIPTION"
+amount_that_can_be_picked = 1
+values = {
+"bomb_count": 2
+}
+flavour_class = 0

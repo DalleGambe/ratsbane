@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=2 format=3 uid="uid://dw0fnl1l0qi7x"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_8wyxo"]
+
+[resource]
+script = ExtResource("1_8wyxo")
+limit = 3
+type = 8
+sound_effects = Array[AudioStream]([])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 0.8
+max_pitch = 1.2
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://ylb0becx4aot"]
+
+[ext_resource type="Texture2D" uid="uid://ciw2eir1g4k0v" path="res://assets/achievements/end game/im_still_standing.png" id="1_lyqrf"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_twmai"]
+
+[resource]
+script = ExtResource("2_twmai")
+id = "im_still_standing"
+title = "IM_STILL_STANDING_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 500000
+description = "IM_STILL_STANDING_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_lyqrf")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

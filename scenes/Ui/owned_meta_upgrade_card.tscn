@@ -1,0 +1,251 @@
+[gd_scene load_steps=15 format=3 uid="uid://lw856c0dqrys"]
+
+[ext_resource type="Script" path="res://scenes/Ui/owned_meta_upgrade_card.gd" id="1_yvxdf"]
+[ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="2_gn3u2"]
+[ext_resource type="AudioStream" uid="uid://c22th3j1qr5rg" path="res://assets/audio/sfx/upgrade card/card_enter_1.wav" id="3_fdj7t"]
+[ext_resource type="AudioStream" uid="uid://csuqbuch0huex" path="res://assets/audio/sfx/button/purchase/purchase_1.wav" id="4_kdkks"]
+[ext_resource type="AudioStream" uid="uid://cw4hwm5s1ooug" path="res://assets/audio/sfx/upgrade card/card_rattle_1.wav" id="5_hqok2"]
+[ext_resource type="PackedScene" uid="uid://c21rdapgkkws8" path="res://scenes/Ui/slider_with_label.tscn" id="6_sr2k6"]
+[ext_resource type="AudioStream" uid="uid://bxdml0cvf6lgb" path="res://assets/audio/sfx/button/click/enable_meta_upgrade_click_1.wav" id="7_l3duw"]
+[ext_resource type="PackedScene" uid="uid://pg6jic4xnaw1" path="res://scenes/Ui/sound_button.tscn" id="8_gan7i"]
+[ext_resource type="AudioStream" uid="uid://de53bx2rm8h45" path="res://assets/audio/sfx/button/click/disable_meta_upgrade_click_1.wav" id="8_ktegp"]
+
+[sub_resource type="Animation" id="Animation_keutj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n4l8d"]
+resource_name = "on_card_hover"
+length = 0.375
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.175, 0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0872665, -0.0872665, 0.0872665, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioPlayerComponent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["card_hover", -5.0, 0.0],
+"method": &"play_random_audio"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6i2vq"]
+resource_name = "on_click"
+length = 0.6
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.25, 0.325, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.174533, -0.174533, 0.174533, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioPlayerComponent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.475),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["card_rattle", 0.9, 1.1],
+"method": &"play_requested_track_with_pitch"
+}, {
+"args": [1.0, 1.0],
+"method": &"set_pitch"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5ts1y"]
+resource_name = "on_cursor_exit"
+length = 0.375
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.175, 0.225, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgyji"]
+_data = {
+"RESET": SubResource("Animation_keutj"),
+"on_card_hover": SubResource("Animation_n4l8d"),
+"on_click": SubResource("Animation_6i2vq"),
+"on_cursor_exit": SubResource("Animation_5ts1y")
+}
+
+[node name="OwnedMetaUpgradeCard" type="PanelContainer" groups=["meta_upgrade_card"]]
+z_index = 50
+custom_minimum_size = Vector2(150, 0)
+offset_right = 202.0
+offset_bottom = 212.0
+pivot_offset = Vector2(139, 116)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yvxdf")
+
+[node name="AudioPlayerComponent" parent="." instance=ExtResource("2_gn3u2")]
+bus = &"Sfx"
+min_pitch = 1.0
+max_pitch = 1.0
+audio_stream_list = Array[AudioStream]([ExtResource("3_fdj7t"), ExtResource("4_kdkks"), ExtResource("5_hqok2")])
+
+[node name="HoverAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_cgyji")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"AlternatePanelContainer"
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 18
+text = "placeholder"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Description Label" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "this is a very very very long description of how the upgrade actually functions!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AmountActiveSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer" instance=ExtResource("6_sr2k6")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EnableUpgradeButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("8_gan7i")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DISABLE_BUTTON"
+sfx_list = Array[AudioStream]([ExtResource("7_l3duw"), ExtResource("8_ktegp")])

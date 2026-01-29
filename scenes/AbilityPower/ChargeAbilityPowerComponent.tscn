@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1lkd6tk37083"]
+
+[ext_resource type="Script" path="res://scenes/AbilityPower/charge_ability_power_component.gd" id="1_sryhj"]
+[ext_resource type="PackedScene" uid="uid://bhthan6ngau2w" path="res://scenes/Component/HitboxComponent/hit_box_component.tscn" id="2_gg1qv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yal3n"]
+radius = 5.0
+
+[node name="ChargeAbilityComponent" type="Node2D"]
+script = ExtResource("1_sryhj")
+cooldown_time = 45.0
+coyote_buffer = 0.25
+
+[node name="ChargeHitBoxComponent" parent="." instance=ExtResource("2_gg1qv")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChargeHitBoxComponent"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_yal3n")
+disabled = true
+one_way_collision_margin = 5.0
+debug_color = Color(0.50706, 0.578982, 3.85046e-07, 0.42)

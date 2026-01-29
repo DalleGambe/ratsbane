@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bglm2ltw1cbge"]
+
+[ext_resource type="Script" path="res://scenes/Autoload/version_checker.gd" id="1_ex40s"]
+
+[node name="VersionChecker" type="Node"]
+script = ExtResource("1_ex40s")

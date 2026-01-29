@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://dwwmbu74f6ect"]
+
+[ext_resource type="Texture2D" uid="uid://dkp8ima0p26x1" path="res://assets/achievements/end game/early_retirement.png" id="1_dotnf"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="1_lso40"]
+
+[resource]
+script = ExtResource("1_lso40")
+id = "early_retirement"
+title = "EARLY_RETIREMENT_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "EARLY_RETIREMENT_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_dotnf")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

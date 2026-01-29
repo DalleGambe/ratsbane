@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8k171eu5f1c4"]
+
+[ext_resource type="Script" path="res://scenes/Ability/PinballAbility/pinball_ability.gd" id="1_cv0sn"]
+[ext_resource type="PackedScene" uid="uid://bhthan6ngau2w" path="res://scenes/Component/HitboxComponent/hit_box_component.tscn" id="2_bq0ux"]
+[ext_resource type="Shader" path="res://resources/shaders/glowing_border.gdshader" id="2_d87ly"]
+[ext_resource type="Texture2D" uid="uid://dnvt2hm3yknxt" path="res://assets/abilities/Pinball Massacre/pinball_2.png" id="3_578u6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjhmc"]
+shader = ExtResource("2_d87ly")
+shader_parameter/color1 = Color(0.639, 0.361, 0.865, 1)
+shader_parameter/color2 = Color(0.549, 0.204, 0.792, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/time = null
+shader_parameter/glow_speed = 1.0
+shader_parameter/intensity = 1.5
+shader_parameter/edge_softness = 1.0
+shader_parameter/glow_is_active = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0s4t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcm6f"]
+
+[sub_resource type="Animation" id="Animation_t683v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3j3et"]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mey8s"]
+_data = {
+"RESET": SubResource("Animation_t683v"),
+"disappear": SubResource("Animation_3j3et")
+}
+
+[node name="PinballAbility" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("1_cv0sn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xjhmc")
+texture = ExtResource("3_578u6")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("2_bq0ux")]
+unique_name_in_owner = true
+collision_layer = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("CircleShape2D_l0s4t")
+
+[node name="EnemyDetectionBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionBox"]
+shape = SubResource("CircleShape2D_gcm6f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_mey8s")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gcm6f")

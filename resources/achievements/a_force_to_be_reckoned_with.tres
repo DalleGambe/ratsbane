@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://b080ohicfhjw8"]
+
+[ext_resource type="Texture2D" uid="uid://t4yr0c7o6q18" path="res://assets/achievements/end game/a_force_to_be_reckoned_with.png" id="1_11ld8"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_tcn31"]
+
+[resource]
+script = ExtResource("2_tcn31")
+id = "a_force_to_be_reckoned_with"
+title = "A_FORCE_TO_BE_RECKONED_WITH_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1000000
+description = "A_FORCE_TO_BE_RECKONED_WITH_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_11ld8")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

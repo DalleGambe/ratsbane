@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://caeq2ds1pdbmf"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ho3kj"]
+
+[resource]
+script = ExtResource("1_ho3kj")
+id = "boing"
+name = "BOING_NAME"
+description = "BOING_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"extra_bounces": 5
+}
+flavour_class = 0

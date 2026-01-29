@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4g8conregd45"]
+
+[ext_resource type="Texture2D" uid="uid://dls1secjo7o3s" path="res://assets/abilities/SwordAbility/sword.png" id="1_34ckv"]
+
+[sub_resource type="Gradient" id="Gradient_3wjle"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.686275)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_npnrf"]
+gradient = SubResource("Gradient_3wjle")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ss5w"]
+particle_flag_disable_z = true
+gravity = Vector3(30, 0, 0)
+color_ramp = SubResource("GradientTexture1D_npnrf")
+hue_variation_min = -1.0
+hue_variation_max = -1.0
+
+[node name="Imagetrail" type="GPUParticles2D"]
+process_material = SubResource("ParticleProcessMaterial_0ss5w")
+texture = ExtResource("1_34ckv")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://c7ilyec04rdan"]
+
+[ext_resource type="Texture2D" uid="uid://c2uu6nh74owds" path="res://assets/achievements/shop/monopoly.png" id="1_rhppn"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_1lml1"]
+
+[resource]
+script = ExtResource("2_1lml1")
+id = "monopoly"
+title = "MONOPOLY_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 5
+description = "MONOPOLY_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_rhppn")
+started_at = "N/A"
+completed_on = "N/A"
+category = 1
+target_goal_is_dynamic = true

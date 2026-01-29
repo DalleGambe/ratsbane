@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddxbcqif660rn"]
+
+[ext_resource type="Script" path="res://resources/Particles/arcane_missile.gd" id="1_41fpp"]
+
+[sub_resource type="Gradient" id="Gradient_vgj1m"]
+offsets = PackedFloat32Array(0.265455, 0.298182, 0.625455, 0.770909, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.443137, 0.270588, 0.843137, 1, 0.960784, 0.592157, 1, 1, 0.996078, 0.878431, 0.992157, 1, 0.996078, 0.878431, 0.992157, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+position = Vector2(0, -14)
+amount = 600
+lifetime = 0.21
+speed_scale = 0.25
+randomness = 1.0
+fixed_fps = 60
+emission_shape = 2
+emission_sphere_radius = 4.0
+linear_accel_max = 93.23
+radial_accel_max = 93.99
+tangential_accel_max = 6.45
+damping_max = 100.0
+scale_amount_min = 0.2
+scale_amount_max = 1.5
+color = Color(0.996078, 0.878431, 0.992157, 1)
+color_ramp = SubResource("Gradient_vgj1m")
+script = ExtResource("1_41fpp")

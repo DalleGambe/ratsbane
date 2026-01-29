@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://deqpslfud6pup"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_kkejs"]
+
+[resource]
+script = ExtResource("1_kkejs")
+id = "rat_player_increase_speed"
+name = "NEED_FOR_SPEED_NAME"
+description = "NEED_FOR_SPEED_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"increase_speed_amount": 4.0
+}
+flavour_class = 0

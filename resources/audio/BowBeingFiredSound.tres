@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=7 format=3 uid="uid://ccf8ak7lhvsop"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_6q4yo"]
+[ext_resource type="AudioStream" uid="uid://buy4r7y4i3ku7" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_1.wav" id="2_twlx8"]
+[ext_resource type="AudioStream" uid="uid://bckew0bx6jlgn" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_2.wav" id="3_3dq73"]
+[ext_resource type="AudioStream" uid="uid://b0sy6uruffrgp" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_3.wav" id="4_ky3pa"]
+[ext_resource type="AudioStream" uid="uid://rloqppf6ldgm" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_4.wav" id="5_xv2ur"]
+[ext_resource type="AudioStream" uid="uid://bxkxykfhahpri" path="res://assets/audio/sfx/enemy/ranger_enemy/bow_fired_5.wav" id="6_shqts"]
+
+[resource]
+script = ExtResource("1_6q4yo")
+limit = 3
+type = 2
+sound_effects = Array[AudioStream]([ExtResource("2_twlx8"), ExtResource("3_3dq73"), ExtResource("4_ky3pa"), ExtResource("5_xv2ur"), ExtResource("6_shqts")])
+volume = -6
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://xx6ya1l1jxh3"]
+
+[ext_resource type="Texture2D" uid="uid://dttgh8v0vluhu" path="res://assets/achievements/shop/whenever_there_is_opportunity_i_will_be_there.png" id="1_mj36j"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_jjxqq"]
+
+[resource]
+script = ExtResource("2_jjxqq")
+id = "where_there_is_opportunity_i_will_be_there"
+title = "WHERE_THERE_IS_OPPORTUNITY_I_WILL_BE_THERE_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "WHERE_THERE_IS_OPPORTUNITY_I_WILL_BE_THERE_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_mj36j")
+started_at = "N/A"
+completed_on = "N/A"
+category = 1

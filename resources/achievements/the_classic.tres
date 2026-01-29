@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://bpo3h18ppu724"]
+
+[ext_resource type="Texture2D" uid="uid://dp5fukl87rjp6" path="res://assets/achievements/end game/the_classic.png" id="1_6hhjr"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_q3qk3"]
+
+[resource]
+script = ExtResource("2_q3qk3")
+id = "the_classic"
+title = "THE_CLASSIC_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "THE_CLASSIC_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_6hhjr")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3

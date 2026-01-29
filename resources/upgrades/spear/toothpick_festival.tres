@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://caaw5ehl3d5o0"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_5hatp"]
+
+[resource]
+script = ExtResource("1_5hatp")
+id = "toothpick_festival"
+name = "TOOTHPICK_FESTIVAL_NAME"
+description = "TOOTHPICK_FESTIVAL_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"spear_amount": 2
+}

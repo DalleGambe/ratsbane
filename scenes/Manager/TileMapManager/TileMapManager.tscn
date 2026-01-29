@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl8e2cqbriqlv"]
+
+[ext_resource type="Script" path="res://scenes/Manager/TileMapManager/tile_map_manager.gd" id="1_hpdjp"]
+
+[node name="TileMapManager" type="Node"]
+script = ExtResource("1_hpdjp")

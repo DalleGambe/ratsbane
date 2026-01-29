@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://b2ga4nap748k4"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_6i5rq"]
+
+[resource]
+script = ExtResource("1_6i5rq")
+id = "bouncy_storm"
+name = "BOUNCY_STORM_NAME"
+description = "BOUNCY_STORM_DESCRIPTION"
+amount_that_can_be_picked = 2
+values = {
+"extra_amount": 2
+}
+flavour_class = 0

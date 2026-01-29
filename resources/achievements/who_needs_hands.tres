@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://bky1a4a33yrqm"]
+
+[ext_resource type="Texture2D" uid="uid://dplvwhln3ppva" path="res://assets/achievements/end game/who_needs_hands.png" id="1_hxfwi"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_7uema"]
+
+[resource]
+script = ExtResource("2_7uema")
+id = "who_needs_hands"
+title = "WHO_NEEDS_HANDS_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 100000
+description = "WHO_NEEDS_HANDS_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_hxfwi")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

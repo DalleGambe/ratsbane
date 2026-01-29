@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://cbmccfrpxsxte"]
+
+[ext_resource type="Texture2D" uid="uid://babuukplo2e1i" path="res://assets/achievements/none/why_just_why.png" id="1_7pa81"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_x5git"]
+
+[resource]
+script = ExtResource("2_x5git")
+id = "why_just_why"
+title = "WHY_JUST_WHY_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "WHY_JUST_WHY_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_7pa81")
+started_at = "N/A"
+completed_on = "N/A"
+category = 0
+target_goal_is_dynamic = false

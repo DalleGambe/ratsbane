@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://diedvug6a6djq"]
+
+[ext_resource type="Script" path="res://scenes/Ability/AxeAbility/axe_ability_controller.gd" id="1_u6n36"]
+[ext_resource type="PackedScene" uid="uid://drutfg6ovh4pp" path="res://scenes/Ability/AxeAbility/axe_ability.tscn" id="2_jq0er"]
+
+[node name="AxeAbilityController" type="Node"]
+script = ExtResource("1_u6n36")
+axe_ability_scene = ExtResource("2_jq0er")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.3
+autostart = true
+
+[node name="TempTimer" type="Timer" parent="."]
+one_shot = true

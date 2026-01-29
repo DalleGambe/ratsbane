@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://ckdm8t0jjeauw"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_pbcy8"]
+
+[resource]
+script = ExtResource("1_pbcy8")
+id = "gain_experience"
+title = "EXPERIENCE_BOOST_META_UPGRADE_NAME"
+description = "EXPERIENCE_BOOST_META_UPGRADE_DESCRIPTION"
+owned_quantity = 0
+active_quantity = 0
+max_quantity = 1
+experience_cost = 450
+is_currently_active = null
+values = {
+"increased_drop_rate": 10.0
+}

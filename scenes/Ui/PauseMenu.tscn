@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://3iayv0g4krl7"]
+
+[ext_resource type="Script" path="res://scenes/Ui/pause_menu.gd" id="1_rsh12"]
+[ext_resource type="PackedScene" uid="uid://bk5u4hcygxmwj" path="res://scenes/Ui/flying_pannel_container.tscn" id="2_uw3r7"]
+[ext_resource type="PackedScene" uid="uid://bio16yutlh531" path="res://scenes/Ui/animated_label.tscn" id="4_5ybtq"]
+[ext_resource type="PackedScene" uid="uid://pg6jic4xnaw1" path="res://scenes/Ui/sound_button.tscn" id="5_gmfdh"]
+[ext_resource type="PackedScene" uid="uid://bsr284cx0o2lt" path="res://scenes/Ui/vignette.tscn" id="6_xuoiq"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_rsh12")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MainPanelContainer" parent="MarginContainer" instance=ExtResource("2_uw3r7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/MainPanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 11
+theme_override_constants/outline_size = 19
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 40
+text = "Ratsbane"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SectionLabel" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2" instance=ExtResource("4_5ybtq")]
+custom_minimum_size = Vector2(190, 50)
+layout_mode = 2
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 40
+text = "PAUSED_LABEL"
+displayed_text = "PAUSED_LABEL"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="ContinueButton" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("5_gmfdh")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "CONTINUE_BUTTON"
+
+[node name="RestartButton" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("5_gmfdh")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "RESTART_BUTTON"
+
+[node name="OptionsButton" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("5_gmfdh")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "OPTIONS_BUTTON"
+
+[node name="QuitButton" parent="MarginContainer/MainPanelContainer/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("5_gmfdh")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "QUIT_BUTTON"
+
+[node name="Vignette" parent="." instance=ExtResource("6_xuoiq")]

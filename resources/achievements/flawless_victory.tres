@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://ba2bcal3mrbwb"]
+
+[ext_resource type="Texture2D" uid="uid://dke5d83wu07fr" path="res://assets/achievements/end game/flawless_victory.png" id="1_bkalc"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_kjaql"]
+
+[resource]
+script = ExtResource("2_kjaql")
+id = "flawless_victory"
+title = "FLAWLESS_VICTORY_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "FLAWLESS_VICTORY_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_bkalc")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

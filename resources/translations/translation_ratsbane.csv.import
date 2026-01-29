@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cya5s4psy8x65"
+
+[deps]
+
+files=["res://resources/translations/translation_ratsbane.en.translation", "res://resources/translations/translation_ratsbane.nl.translation"]
+
+source_file="res://resources/translations/translation_ratsbane.csv"
+dest_files=["res://resources/translations/translation_ratsbane.en.translation", "res://resources/translations/translation_ratsbane.nl.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2edlrk0vj782"]
+
+[ext_resource type="Script" path="res://scenes/Ui/upgrade_screen.gd" id="1_kkux5"]
+[ext_resource type="PackedScene" uid="uid://bwidnx6smp5f" path="res://scenes/Ui/ability_upgrade_card.tscn" id="1_yjlck"]
+[ext_resource type="PackedScene" uid="uid://bsr284cx0o2lt" path="res://scenes/Ui/vignette.tscn" id="3_ilsjw"]
+[ext_resource type="PackedScene" uid="uid://pg6jic4xnaw1" path="res://scenes/Ui/sound_button.tscn" id="3_wvrrd"]
+
+[sub_resource type="Animation" id="Animation_qq4lk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u40nn"]
+resource_name = "fade in"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.619608)]
+}
+
+[sub_resource type="Animation" id="Animation_si8j8"]
+resource_name = "fade out"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.619608), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gx3v"]
+_data = {
+"RESET": SubResource("Animation_qq4lk"),
+"fade in": SubResource("Animation_u40nn"),
+"fade out": SubResource("Animation_si8j8")
+}
+
+[node name="UpgradeScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_kkux5")
+upgrade_card_scene = ExtResource("1_yjlck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3gx3v")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.14902, 0.168627, 0.266667, 1)
+
+[node name="Vignette" parent="." instance=ExtResource("3_ilsjw")]
+layer = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="PendingLevelUpsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+horizontal_alignment = 1
+
+[node name="CardContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+y_sort_enabled = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 36
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="OrMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_bottom = 11
+
+[node name="NormalOrLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OrMarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "OR_LABEL"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="HealButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wvrrd")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(125, 28)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "HEAL_LABEL"
+
+[node name="RareOrLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "OR_LABEL"
+horizontal_alignment = 1
+
+[node name="DoNothingButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wvrrd")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 28)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DO_NOTHING_BUTTON"
+
+[node name="PickRandomCardButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wvrrd")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 28)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "PICK_RANDOM_CARD_BUTTON"

@@ -1,0 +1,189 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbdih3271o4yi"]
+
+[ext_resource type="Script" path="res://scenes/Ui/run_inventory_menu.gd" id="1_u8vos"]
+[ext_resource type="PackedScene" uid="uid://bsr284cx0o2lt" path="res://scenes/Ui/vignette.tscn" id="3_01tyh"]
+[ext_resource type="Theme" uid="uid://bmh7oa1jgdg2c" path="res://resources/theme/theme.tres" id="4_t6yed"]
+[ext_resource type="PackedScene" uid="uid://vtdgfqinr0j7" path="res://scenes/Ui/inventory_ability_upgrade_card.tscn" id="5_w6xqq"]
+[ext_resource type="PackedScene" uid="uid://pg6jic4xnaw1" path="res://scenes/Ui/sound_button.tscn" id="6_lek5x"]
+
+[sub_resource type="Animation" id="Animation_qq4lk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u40nn"]
+resource_name = "fade in"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.619608)]
+}
+
+[sub_resource type="Animation" id="Animation_si8j8"]
+resource_name = "fade out"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.619608), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gx3v"]
+_data = {
+"RESET": SubResource("Animation_qq4lk"),
+"fade in": SubResource("Animation_u40nn"),
+"fade out": SubResource("Animation_si8j8")
+}
+
+[node name="RunInventoryMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_u8vos")
+metadata/_edit_horizontal_guides_ = [-16.0]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3gx3v")
+}
+
+[node name="Vignette" parent="." instance=ExtResource("3_01tyh")]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.14902, 0.168627, 0.266667, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+
+[node name="CardContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CardContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/CardContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("4_t6yed")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CardContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CardContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 4
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/CardContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="AbilityUpgradeCard" parent="MarginContainer/CardContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("5_w6xqq")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CardContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer" instance=ExtResource("6_lek5x")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 28)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "CLOSE_LABEL"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="UpgradesCollectedLabel" type="Label" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 8
+text = "UPGRADES_COLLECTED_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="UpgradesCollectedAmountLabel" type="Label" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 8
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Searchbar" type="LineEdit" parent="MarginContainer/CardContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "SEARCH_INVENTORY_PLACEHOLDER"
+alignment = 1
+max_length = 3

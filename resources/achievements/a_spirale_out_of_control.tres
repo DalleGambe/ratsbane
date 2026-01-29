@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://c2l21glkxls36"]
+
+[ext_resource type="Texture2D" uid="uid://cq5dgi7pdut17" path="res://assets/achievements/end game/spiraling_out_of_controle.png" id="1_jus0g"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_6tf4g"]
+
+[resource]
+script = ExtResource("2_6tf4g")
+id = "a_spirale_out_of_control"
+title = "A_SPIRALE_OUT_OF_CONTROL_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "A_SPIRALE_OUT_OF_CONTROL_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_jus0g")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = true

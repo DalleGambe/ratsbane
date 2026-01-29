@@ -1,0 +1,261 @@
+[gd_scene load_steps=24 format=3 uid="uid://5a7qbohb16oo"]
+
+[ext_resource type="PackedScene" uid="uid://cr5u7q0jvdgku" path="res://scenes/Component/HealthComponent/health_component.tscn" id="1_8esy0"]
+[ext_resource type="Script" path="res://scenes/Monster/Ranger_Enemy/ranger_enemy.gd" id="1_14ajc"]
+[ext_resource type="PackedScene" uid="uid://buxfdux1b1bn" path="res://scenes/Component/VelocityComponent/velocity_component.tscn" id="2_efm8x"]
+[ext_resource type="PackedScene" uid="uid://brbgfhymdu1xl" path="res://scenes/Component/ExperienceDropComponent/VialDropComponent/VialDropComponent.tscn" id="3_hu7ek"]
+[ext_resource type="Script" path="res://scenes/Component/KnockbackComponent/knockback_component.gd" id="4_twc8j"]
+[ext_resource type="PackedScene" uid="uid://dk5m6g1n17enx" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.tscn" id="5_allba"]
+[ext_resource type="PackedScene" uid="uid://5lwwd2gpfguy" path="res://scenes/Component/TokenDropComponent/TokenDropComponent.tscn" id="5_ukttc"]
+[ext_resource type="Shader" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="6_7l3af"]
+[ext_resource type="PackedScene" uid="uid://dg0tijy0w5wft" path="res://scenes/Game_Object/Vacuum_token/vacuum_token.tscn" id="6_plyus"]
+[ext_resource type="PackedScene" uid="uid://cdsgd1iyk7brk" path="res://scenes/Component/BloodSplatterComponent/BloodSplatterComponent.tscn" id="7_hmhxw"]
+[ext_resource type="PackedScene" uid="uid://ccvuan8ci6hpn" path="res://scenes/Monster/Projectiles/Arrow/arrow_abillity_controller.tscn" id="8_dctif"]
+[ext_resource type="PackedScene" uid="uid://bo47tcyr1j6uu" path="res://scenes/Component/DeathComponent/death_component.tscn" id="8_wuhqp"]
+[ext_resource type="PackedScene" uid="uid://b3g31a0xma1uo" path="res://scenes/Component/HurtboxComponent/hurtbox_component.tscn" id="9_83uec"]
+[ext_resource type="PackedScene" uid="uid://dd8ouvr1dwxs7" path="res://scenes/Component/RandomAudioPlayerComponent/RandomAudioPlayerComponent.tscn" id="10_e43cx"]
+[ext_resource type="Texture2D" uid="uid://bd4qjbklq4wwd" path="res://assets/monsters/Ranger/ranger.png" id="11_365e3"]
+[ext_resource type="Texture2D" uid="uid://c0soqim442lj4" path="res://assets/monsters/Ranger/bow.png" id="12_g2tmf"]
+
+[sub_resource type="Animation" id="Animation_li1jw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Weapon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Weapon:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yfcoh"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.174533, -0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Weapon:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.35, 0.475),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 2), Vector2(6, -3), Vector2(6, 2), Vector2(7, -1), Vector2(6, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Weapon:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, 0.174533, -0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qe4o"]
+_data = {
+"RESET": SubResource("Animation_li1jw"),
+"walk": SubResource("Animation_yfcoh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruov5"]
+resource_local_to_scene = true
+shader = ExtResource("6_7l3af")
+shader_parameter/lerp_percent = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okmxb"]
+resource_local_to_scene = true
+shader = ExtResource("6_7l3af")
+shader_parameter/lerp_percent = null
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xd0u2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t37m6"]
+radius = 8.0
+
+[node name="RangerEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_14ajc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_5qe4o")
+}
+autoplay = "walk"
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_8esy0")]
+unique_name_in_owner = true
+max_health = 100.0
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_efm8x")]
+unique_name_in_owner = true
+max_speed = 130
+acceleration = 10.0
+
+[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_hu7ek")]
+unique_name_in_owner = true
+drop_percent = 0.8
+health_component = NodePath("../HealthComponent")
+
+[node name="TokenDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_ukttc")]
+health_component = NodePath("../HealthComponent")
+token_scene = ExtResource("6_plyus")
+
+[node name="KnockbackComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_twc8j")
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_allba")]
+unique_name_in_owner = true
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_ruov5")
+
+[node name="HitFlashWeaponComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_allba")]
+unique_name_in_owner = true
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Weapon")
+hit_flash_material = SubResource("ShaderMaterial_okmxb")
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="ArrowAbillityController" parent="Abilities" instance=ExtResource("8_dctif")]
+unique_name_in_owner = true
+
+[node name="BloodSplatterComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_hmhxw")]
+unique_name_in_owner = true
+health_component = NodePath("../HealthComponent")
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("8_wuhqp")]
+unique_name_in_owner = true
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+random_audio_player = NodePath("../RandomAudioPlayerComponent")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "blood_splatter_component", "knockback_component") instance=ExtResource("9_83uec")]
+health_component = NodePath("../HealthComponent")
+blood_splatter_component = NodePath("../BloodSplatterComponent")
+knockback_component = NodePath("../KnockbackComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_xd0u2")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+texture = ExtResource("11_365e3")
+
+[node name="Weapon" type="Sprite2D" parent="Visuals"]
+position = Vector2(6, 2)
+scale = Vector2(0.588, 0.9)
+texture = ExtResource("12_g2tmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_t37m6")
+
+[node name="RandomAudioPlayerComponent" parent="." instance=ExtResource("10_e43cx")]
+unique_name_in_owner = true
+
+[node name="RunAwayTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

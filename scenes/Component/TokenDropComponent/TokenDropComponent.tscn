@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://5lwwd2gpfguy"]
+
+[ext_resource type="Script" path="res://scenes/Component/TokenDropComponent/token_drop_component.gd" id="1_dqxs7"]
+
+[node name="TokenDropComponent" type="Node"]
+script = ExtResource("1_dqxs7")
+drop_percent = 0.1

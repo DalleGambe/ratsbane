@@ -1,0 +1,7 @@
+Resource
+GDScript
+ParticleProcessMaterial
+Achievement
+SoundEffectSettings
+Theme
+TileSet

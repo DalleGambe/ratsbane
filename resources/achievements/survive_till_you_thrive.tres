@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://dypxme6r5r55w"]
+
+[ext_resource type="Texture2D" uid="uid://ce0lu2fu48hwo" path="res://assets/achievements/end game/survive_till_you_thrive.png" id="1_nbkek"]
+[ext_resource type="Script" path="res://resources/achievements/achievement.gd" id="2_jmxac"]
+
+[resource]
+script = ExtResource("2_jmxac")
+id = "survive_till_you_thrive"
+title = "SURVIVE_TILL_YOU_THRIVE_ACHIEVEMENT_NAME"
+current_progress = 0
+target_goal = 1
+description = "SURVIVE_TILL_YOU_THRIVE_ACHIEVEMENT_DESCRIPTION"
+image = ExtResource("1_nbkek")
+started_at = "N/A"
+completed_on = "N/A"
+category = 3
+target_goal_is_dynamic = false

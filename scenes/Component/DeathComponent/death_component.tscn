@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://bo47tcyr1j6uu"]
+
+[ext_resource type="Texture2D" uid="uid://bi7nsmjfoud1g" path="res://assets/monsters/Bat/regular_bat.png" id="1_f4ud4"]
+[ext_resource type="Script" path="res://scenes/Component/DeathComponent/death_component.gd" id="1_m8nnv"]
+[ext_resource type="PackedScene" uid="uid://dd8ouvr1dwxs7" path="res://scenes/Component/RandomAudioPlayerComponent/RandomAudioPlayerComponent.tscn" id="3_5gkwj"]
+
+[sub_resource type="Animation" id="Animation_8nclh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2ponk"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t0b31"]
+resource_name = "faded"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0k65w"]
+_data = {
+"RESET": SubResource("Animation_8nclh"),
+"default": SubResource("Animation_2ponk"),
+"faded": SubResource("Animation_t0b31")
+}
+
+[sub_resource type="Curve" id="Curve_vusp4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.496667, 1), 0.0, 0.0, 0, 0, Vector2(0.99, 0.0328418), 0.0, 0.0, 0, 0, Vector2(0.996667, 0.0328418), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ag3uy"]
+curve = SubResource("Curve_vusp4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wk46s"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 200.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 125.0
+initial_velocity_max = 175.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_ag3uy")
+
+[node name="DeathComponent" type="Node2D"]
+script = ExtResource("1_m8nnv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_0k65w")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+rotation = -0.74557
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_wk46s")
+texture = ExtResource("1_f4ud4")
+one_shot = true
+fixed_fps = 0
+interpolate = false
+
+[node name="RandomSfxPlayerComponent" parent="." instance=ExtResource("3_5gkwj")]
+unique_name_in_owner = true

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuuo2fopu2acp"]
+
+[ext_resource type="Script" path="res://scenes/Ui/leaderboard_player_score_card.gd" id="1_sefpx"]
+[ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="2_t3rfp"]
+[ext_resource type="AudioStream" uid="uid://c22th3j1qr5rg" path="res://assets/audio/sfx/upgrade card/card_enter_1.wav" id="3_kvwt1"]
+[ext_resource type="AudioStream" uid="uid://0dmy1nk26o07" path="res://assets/audio/sfx/upgrade card/flip_card_to_back.wav" id="4_rt6xj"]
+[ext_resource type="AudioStream" uid="uid://drlu2kren64hi" path="res://assets/audio/sfx/upgrade card/flip_card_to_front.wav" id="5_l33s2"]
+
+[node name="LeaderboardPlayerScoreCard" type="PanelContainer"]
+offset_left = -12.0
+offset_right = 311.0
+offset_bottom = 50.0
+pivot_offset = Vector2(201, 76)
+script = ExtResource("1_sefpx")
+
+[node name="AudioPlayerComponent" parent="." instance=ExtResource("2_t3rfp")]
+unique_name_in_owner = true
+bus = &"Sfx"
+min_pitch = 1.0
+max_pitch = 1.0
+audio_stream_list = Array[AudioStream]([ExtResource("3_kvwt1"), ExtResource("4_rt6xj"), ExtResource("5_l33s2")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RankingLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 26
+text = "1#"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 1000
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 18
+text = "Dalle gambe"
+vertical_alignment = 2
+autowrap_mode = 3
+uppercase = true
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_shadow_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 18
+text = "1000000"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3

@@ -1,0 +1,8 @@
+# Handle line endings automatically
+* text=auto
+
+# Ensure Godot files use LF (recommended for cross-platform)
+*.gd text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.import text eol=lf

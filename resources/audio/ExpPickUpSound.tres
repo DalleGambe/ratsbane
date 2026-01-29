@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=4 format=3 uid="uid://c27lgnhs87p17"]
+
+[ext_resource type="Script" path="res://resources/audio/SoundEffectSetting.gd" id="1_gdqqg"]
+[ext_resource type="AudioStream" uid="uid://cj6dh4gmqh5x5" path="res://assets/audio/sfx/exp_pick_up/exp_pickup_1.wav" id="2_15ulj"]
+[ext_resource type="AudioStream" uid="uid://b3ibwn6c56frw" path="res://assets/audio/sfx/exp_pick_up/exp_pickup_2.wav" id="3_8lok0"]
+
+[resource]
+script = ExtResource("1_gdqqg")
+limit = 5
+type = 0
+sound_effects = Array[AudioStream]([ExtResource("2_15ulj"), ExtResource("3_8lok0")])
+volume = 0
+pitch_scale = 1.0
+min_pitch = 1.0
+max_pitch = 1.0
+randomize_pitch = false
+pitch_randomness = 0.0
+is_consecutive = false

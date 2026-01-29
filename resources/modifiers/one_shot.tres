@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=4 format=3 uid="uid://dqyuljhx225j1"]
+
+[ext_resource type="Script" path="res://resources/modifiers/modifier.gd" id="1_i4803"]
+[ext_resource type="Texture2D" uid="uid://dwti4d7vffbx1" path="res://assets/ui/icons/modifiers/one_shot.png" id="1_xoo0d"]
+[ext_resource type="Texture2D" uid="uid://bo5ts10u3ys7i" path="res://assets/ui/icons/modifiers/one_shot_active.png" id="2_gpaxc"]
+
+[resource]
+script = ExtResource("1_i4803")
+id = "one_shot"
+title = "ONE_SHOT_MODIFIER_TITLE"
+description = "ONE_SHOT_MODIFIER_DESCRIPTION"
+is_active = false
+has_been_beaten = false
+is_unlocked = true
+icon = ExtResource("1_xoo0d")
+icon_active = ExtResource("2_gpaxc")

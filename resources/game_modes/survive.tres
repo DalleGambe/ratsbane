@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameMode" load_steps=2 format=3 uid="uid://d3k61f8xgj46t"]
+
+[ext_resource type="Script" path="res://resources/game_modes/game_mode.gd" id="1_gvkdd"]
+
+[resource]
+script = ExtResource("1_gvkdd")
+id = "game_mode_survive"
+title = "GAME_MODE_SURVIVE_TITLE"
+description = "GAME_MODE_SURVIVE_DESCRIPTION"
+is_unlocked = true

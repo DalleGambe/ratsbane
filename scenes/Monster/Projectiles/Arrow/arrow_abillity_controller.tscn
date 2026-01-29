@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccvuan8ci6hpn"]
+
+[ext_resource type="Script" path="res://scenes/Monster/Projectiles/Arrow/arrow_abillity_controller.gd" id="1_ec3bx"]
+[ext_resource type="PackedScene" uid="uid://cx2osp0t18j6u" path="res://scenes/Monster/Projectiles/Arrow/arrow_enemy_projectile.tscn" id="2_xavn4"]
+
+[node name="ArrowAbillityController" type="Node"]
+script = ExtResource("1_ec3bx")
+arrow_projectile_scene = ExtResource("2_xavn4")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.75
+one_shot = true

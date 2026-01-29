@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Map" load_steps=8 format=3 uid="uid://nlk3us3r1jwn"]
+
+[ext_resource type="Script" path="res://resources/maps/map_object.gd" id="1_2h38s"]
+[ext_resource type="Script" path="res://resources/game_modes/game_mode.gd" id="1_ocxnl"]
+[ext_resource type="Script" path="res://resources/modifiers/modifier.gd" id="1_s8j6t"]
+[ext_resource type="Resource" uid="uid://d3k61f8xgj46t" path="res://resources/game_modes/survive.tres" id="2_2t2wh"]
+[ext_resource type="Resource" uid="uid://dqyuljhx225j1" path="res://resources/modifiers/one_shot.tres" id="2_ycmcr"]
+[ext_resource type="Script" path="res://resources/maps/map.gd" id="3_4d4g6"]
+[ext_resource type="Texture2D" uid="uid://biv7gaipqcagm" path="res://assets/stats/the_courtyard_placeholder.png" id="4_yrpbg"]
+
+[resource]
+script = ExtResource("3_4d4g6")
+id = "the_courtyard"
+number_id = 1
+title = "THE_COURTYARD_MAP_NAME"
+description = "THE_COURTYARD_MAP_DESCRIPTION"
+music_track_name = "pixel"
+base_volume_of_track = 0
+thumbnail = ExtResource("4_yrpbg")
+time_before_door_opens = 301.0
+times_played = 0
+amount_of_wins = 0
+amount_of_losses = 0
+best_highscore = 0.0
+best_time_in_seconds = 0
+last_score = 0.0
+last_time_in_seconds = 0
+available_game_modes = Array[ExtResource("1_ocxnl")]([ExtResource("2_2t2wh")])
+tile_map_layer_name = "TheCourtyardMapLayout"
+modifiers = Array[ExtResource("1_s8j6t")]([ExtResource("2_ycmcr")])
+map_objects = Array[ExtResource("1_2h38s")]([])
+is_unlocked = true

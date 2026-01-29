@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnheunlkffyam"]
+
+[ext_resource type="Script" path="res://scenes/Autoload/music_player.gd" id="1_84nto"]
+[ext_resource type="AudioStream" uid="uid://bxhc1oc522ida" path="res://assets/audio/music/hear_what_they_say.ogg" id="2_uovig"]
+[ext_resource type="AudioStream" uid="uid://cggy0sfemo5nh" path="res://assets/audio/music/pixel_by_robloxeur.ogg" id="3_070d1"]
+[ext_resource type="AudioStream" uid="uid://dt2uv12iu22ih" path="res://assets/audio/music/pixel_by_robloxeur_loop.ogg" id="4_w0y2x"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+autoplay = true
+bus = &"Music"
+script = ExtResource("1_84nto")
+audio_stream_list = Array[AudioStream]([ExtResource("2_uovig"), ExtResource("3_070d1"), ExtResource("4_w0y2x")])
