@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	%Sprite2D.material.set_shader_parameter("time", glow_time)	
 
 func spawn_shrapnel():
-	var number_of_shards:int = 0
+	#var number_of_shards:int = 0
 	var flying_directions:Array = []
 	match selected_spawn_shrapnel_status: 
 		ShrapnelStatus.ShrapnelAmountStatus.FOUR:

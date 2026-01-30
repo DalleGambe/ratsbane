@@ -25,7 +25,7 @@ func _set_achievement(_achievement: Achievement) -> void:
 	if MetaProgression.save_data["achievements"].has(achievement.id):
 		current_progress = MetaProgression.save_data["achievements"][achievement.id]["current_progress"]
 	var target_goal = MetaProgression.save_data["achievements"][achievement.id]["target_goal"]
-	var is_achievement_completed = MetaProgression.is_achievement_completed(achievement.id)
+	#var is_achievement_completed = MetaProgression.is_achievement_completed(achievement.id) //TODO: Used for rewards later
 	var progress_percentage = current_progress / target_goal
 	progress_percentage = min(progress_percentage, 1)
 	progress_bar.value = progress_percentage

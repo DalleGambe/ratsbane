@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var actual_speed = min(max_movement_speed, speed_cap)
-	var velocity = target_direction * actual_speed
+	velocity = target_direction * actual_speed
 	var collision = move_and_collide(velocity * delta)
 
 	if collision:

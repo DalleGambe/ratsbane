@@ -50,11 +50,11 @@ func _on_cooldown_timer_timeout() -> void:
 	
 	# Process spears being thrown
 	for spear_being_thrown in spears_being_thrown:	
-		var spear_ability_scene = spear_ability_scene.instantiate()
-		spear_ability_scene.global_position = player.global_position
+		var spear_ability_scene_instance = spear_ability_scene.instantiate()
+		spear_ability_scene_instance.global_position = player.global_position
 		
 		# If player has turn around upgrade, set turn around to true
-		spear_ability_scene.turn_around_after_first_throw = should_turn_around
+		spear_ability_scene_instance.turn_around_after_first_throw = should_turn_around
 		
 		# Check if there are available targets
 		if available_targets.size() > 0:
@@ -64,16 +64,16 @@ func _on_cooldown_timer_timeout() -> void:
 			# Remove the targeted enemy from the list
 			available_targets.remove_at(index_enemy_to_throw_at)
 			
-			spear_ability_scene.set_throw_direction(target_enemy.global_position)
+			spear_ability_scene_instance.set_throw_direction(target_enemy.global_position)
 		else:
 			# Throw in a random direction if no targets remain
-			spear_ability_scene.set_throw_direction(Vector2(randf_range(-50, 50), randf_range(-50, 50)))
+			spear_ability_scene_instance.set_throw_direction(Vector2(randf_range(-50, 50), randf_range(-50, 50)))
 		
 		# Add spear ability to the foreground
-		foreground.add_child(spear_ability_scene)
+		foreground.add_child(spear_ability_scene_instance)
 		
 		# Set spear damage
-		spear_ability_scene.hitbox_component.damage = base_damage_of_spear * additional_damage_percentage
+		spear_ability_scene_instance.hitbox_component.damage = base_damage_of_spear * additional_damage_percentage
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrade:Dictionary):
 	match ability_upgrade.id:

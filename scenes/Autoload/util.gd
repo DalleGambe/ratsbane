@@ -6,9 +6,9 @@ func convert_to_time(time_in_seconds:int) -> String:
 	return str(minutes) + ":" + ("%02d" % remaining_seconds)
 	
 func convert_to_time_hour(time_in_seconds: int) -> String:
-	var hours = floor(time_in_seconds / 3600)
-	var minutes = floor((time_in_seconds % 3600) / 60)
-	var remaining_seconds = floor(time_in_seconds % 60)
+	var hours:int = floor(time_in_seconds / 3600)
+	var minutes:int = floor((time_in_seconds % 3600) / 60)
+	var remaining_seconds:int = floor(time_in_seconds % 60)
 	return str("%02d" % hours) + ":" + ("%02d" % minutes) + ":" + ("%02d" % remaining_seconds)
 	
 func find_smallest_divisor(number:int) -> int: 

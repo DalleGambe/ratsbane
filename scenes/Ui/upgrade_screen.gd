@@ -148,7 +148,7 @@ func on_pick_random_card_button_pressed() -> void:
 	if upgrade_cards.size() > 0:
 		# Pick a random card
 		var random_index = randi() % upgrade_cards.size()
-		var ability_upgrade = upgrades_on_screen[random_index]
+		#var ability_upgrade = upgrades_on_screen[random_index]
 		
 		# Let the player know what upgrade was picked by playing the click animation of the card
 		upgrade_cards[random_index].select_card()

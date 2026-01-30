@@ -31,8 +31,8 @@ func play_random_audio(contains_name:String = "", volume:float=0.0, position: fl
 				
 	play(position)
 
-func play_requested_track_with_pitch(requested_track:String, min_pitch:float=1.0, max_pitch:float=1.0) -> void:
-		pitch_scale = randf_range(min_pitch, max_pitch)
+func play_requested_track_with_pitch(requested_track:String, new_min_pitch:float=1.0, new_max_pitch:float=1.0) -> void:
+		pitch_scale = randf_range(new_min_pitch, new_max_pitch)
 		play_requested_track(requested_track)
 		
 func play_requested_track(requested_track:String, start_position:float=0.0) -> void:

@@ -32,12 +32,12 @@ func on_temp_timer_timeout() -> void:
 	
 func on_cooldown_timer_timeout() -> void:
 	var direction = Vector2.RIGHT.rotated(randf_range(0,TAU))
-	var additional_rotational_degrees = 360.0 / (amount_of_big_bombs_to_spawn + 1)
+	#var additional_rotational_degrees = 360.0 / (amount_of_big_bombs_to_spawn + 1)
 	var player = get_tree().get_first_node_in_group("player")
 	if player == null:
 		return 
 	for bomb_to_summon in amount_of_big_bombs_to_spawn:
-		var adjusted_direction = direction.rotated(deg_to_rad(bomb_to_summon * additional_rotational_degrees))
+		#var adjusted_direction = direction.rotated(deg_to_rad(bomb_to_summon * additional_rotational_degrees))
 		var spawn_position = player.global_position + (direction * randf_range(25, bomb_to_summon*base_range))
 	
 		var additional_check_offset = direction * 10

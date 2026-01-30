@@ -15,14 +15,14 @@ func _ready() -> void:
 	for child in grid_container.get_children():
 		child.queue_free()
 	
-	var enter_delay = 0
+	#var enter_delay = 0
 	%BackButton.pressed.connect(on_back_button_pressed)
 	%LeaderboardButton.pressed.connect(on_leaderboard_button_pressed)
 	achievements.sort()
 	achievements.sort_custom(func(achievement_a, achievement_b): return MetaProgression.is_achievement_completed_integer(achievement_a) < MetaProgression.is_achievement_completed_integer(achievement_b))
-	var pitch_to_add:float = 0
-	var currently_at_card:int = 1
-	var speed_scale:float = 1.0
+	#var pitch_to_add:float = 0
+	#var currently_at_card:int = 1
+	#var speed_scale:float = 1.0
 	for achievement in achievements:
 		MetaProgression.add_achievement(achievement)
 		var achievement_card_instance = achievement_card_scene.instantiate()

@@ -5,7 +5,6 @@ signal ability_upgrade_added(ability_upgrade:AbilityUpgrade, current_upgrades:Di
 signal player_got_damaged
 signal player_got_healed
 signal player_dealt_damage(damage_dealt:float)
-signal player_died
 signal unlock_inventory(should_be_unlocked:bool)
 signal door_to_next_area_should_open
 signal player_collected_a_pickup

@@ -8,7 +8,7 @@ var player_score:int = 0
 var player_healed_this_run:bool = false
 var player_lasted_time_in_seconds:int = 0
 var amount_of_upgrades_picked:int = 0
-var build_version = "v0.1.3.8"
+var build_version = "v0.1.3.9"
 var is_beta:bool = false
 var currently_playing_on = ""
 var was_player_on_full_health:bool 
@@ -444,11 +444,11 @@ func is_meta_upgrade_enabled(upgrade_id:String) -> bool:
 func is_best_time(time_in_seconds:int) -> bool:
 	return time_in_seconds > save_data["meta_stats"]["best_time_in_seconds"]
 
-func is_best_score(player_score:float) -> bool:
-	return player_score > save_data["meta_stats"]["best_player_score"]
+func is_best_score(new_player_score:float) -> bool:
+	return new_player_score > save_data["meta_stats"]["best_player_score"]
 
-func is_best_map_score(player_score:float) -> bool:
-	return player_score > save_data["meta_stats"]["map_stats"][currently_playing_on]["best_player_score"]
+func is_best_map_score(new_map_player_score:float) -> bool:
+	return new_map_player_score > save_data["meta_stats"]["map_stats"][currently_playing_on]["best_player_score"]
 
 func is_best_map_time(time_in_seconds:float) -> bool:
 	return time_in_seconds > save_data["meta_stats"]["map_stats"][currently_playing_on]["best_time_in_seconds"]
@@ -566,7 +566,7 @@ func check_and_update_progress_of(achievement_id:String, category: Achievement.a
 				print("HOW")	
 		# If the progress has been updated, update the achievement progress		
 		if(progress != 0):
-			await MetaProgression.set_achievement_progress(achievement_id, progress)
+			MetaProgression.set_achievement_progress(achievement_id, progress)
 			if(MetaProgression.is_achievement_completed(achievement_id) == true):
 				# if completed handle it 
 				MetaProgression.handle_achievement_completion(achievement_id)
