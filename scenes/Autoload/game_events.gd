@@ -12,6 +12,8 @@ signal player_triggered_ability
 signal updated_player_health_to(player_health:float, player_max_health:float)
 signal start_invincible_frames
 signal update_boss_health_bar(current_boss_health:float)
+signal near_miss_happened(points:int)
+signal near_miss_merge
 
 func emit_experience_vial_collected(amount_of_experience: float) -> void:
 	experience_vial_collected.emit(amount_of_experience)
@@ -48,3 +50,10 @@ func emit_invincible_frames_started() -> void:
 
 func emit_update_boss_bar(current_boss_health:float) -> void:
 	update_boss_health_bar.emit(current_boss_health)
+
+func emit_near_miss_happened(points:int, location_miss_happened:Vector2) -> void:
+	near_miss_happened.emit(points, location_miss_happened)
+	
+func emit_near_miss_merge() -> void:
+	near_miss_merge.emit()
+	

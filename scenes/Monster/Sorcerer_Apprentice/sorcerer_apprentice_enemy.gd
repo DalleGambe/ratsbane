@@ -13,7 +13,6 @@ func _ready() -> void:
 	health_component.health_amount_changed.connect(on_getting_damaged)
 	health_component.health_owner_died.connect(on_health_owner_dying)
 	arcane_bolt_abillity_controller.summoned_arcane_bolt.connect(on_arcane_bolt_being_summoned)
-	var player = get_tree().get_first_node_in_group("player")
 
 func _process(delta: float) -> void:
 	if not (arcane_bolt_abillity_controller.is_controlling_a_bolt()):

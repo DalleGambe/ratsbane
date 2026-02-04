@@ -8,7 +8,7 @@ var player_score:int = 0
 var player_healed_this_run:bool = false
 var player_lasted_time_in_seconds:int = 0
 var amount_of_upgrades_picked:int = 0
-var build_version = "v0.1.3.9"
+var build_version = "v0.1.4.0"
 var is_beta:bool = false
 var currently_playing_on = ""
 var was_player_on_full_health:bool 

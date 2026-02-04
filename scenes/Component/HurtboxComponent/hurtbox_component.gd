@@ -30,7 +30,7 @@ func do_damage_logic(other_area:Area2D) -> void:
 	
 	if(SettingsManager.get_damage_number_setting() == true):
 		# Get the floating text from the pool
-		var floating_text = DamageNumberManager.get_floating_text()
+		var floating_text = FloatingTextManager.get_floating_text("damage_number")
 		floating_text.show()
 		# Add the floating text back to the scene
 		get_tree().get_first_node_in_group("foreground").add_child(floating_text)

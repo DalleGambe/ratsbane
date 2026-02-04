@@ -34,7 +34,7 @@ func _set_meta_upgrade(upgrade: MetaUpgrade) -> void:
 		owned_quantity = MetaProgression.save_data["meta_upgrades"][meta_upgrade.id]["owned_quantity"]
 		meta_upgrade_is_enabled = MetaProgression.save_data["meta_upgrades"][meta_upgrade.id]["is_currently_active"]
 	update_button_appearance(meta_upgrade_is_enabled)
-	amount_active_slider.set_text_label(str(active_quantity) + "/" + str(owned_quantity))
+	amount_active_slider.set_text_label(Util.format_float_to_string(active_quantity) + "/" + Util.format_float_to_string(owned_quantity))
 	amount_active_slider.value = active_quantity
 	amount_active_slider.last_value = active_quantity
 	amount_active_slider.max_value = owned_quantity
@@ -74,7 +74,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func on_amount_active_slider_value_changed(value:float) -> void:
 	active_quantity = value
-	amount_active_slider.set_text_label(str(active_quantity) + "/" + str(owned_quantity))
+	amount_active_slider.set_text_label(Util.format_float_to_string(active_quantity) + "/" + Util.format_float_to_string(owned_quantity))
 	MetaProgression.save_data["meta_upgrades"][meta_upgrade.id]["active_quantity"] = active_quantity
 	MetaProgression.save()
 
@@ -82,12 +82,7 @@ func on_enable_upgrade_button_pressed() -> void:
 	is_card_loading = true
 	if(meta_upgrade == null):
 		return
-	# Enable Disable logic
 	meta_upgrade_is_enabled = !meta_upgrade_is_enabled
-	#if(meta_upgrade_is_enabled == true):
-		#%EnableUpgradeButton.filter_pressed_name = "enable_meta_upgrade_click_1"
-	#else:
-		#%EnableUpgradeButton.filter_pressed_name = "disable_meta_upgrade_click_1"
 	update_button_appearance(meta_upgrade_is_enabled)
 	MetaProgression.save_data["meta_upgrades"][meta_upgrade.id]["is_currently_active"] = meta_upgrade_is_enabled
 	MetaProgression.save()

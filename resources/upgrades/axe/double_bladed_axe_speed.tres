@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://iqr2yigqw5w3"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://iqr2yigqw5w3"]
 
-[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_cr7op"]
+[ext_resource type="Script" uid="uid://dswsg1ir02nvj" path="res://resources/upgrades/ability_upgrade.gd" id="1_cr7op"]
 
 [resource]
 script = ExtResource("1_cr7op")
@@ -9,6 +9,5 @@ name = "LUMBER_STUMBLER_NAME"
 description = "LUMBER_STUMBLER_DESCRIPTION"
 amount_that_can_be_picked = 2
 values = {
-"axe_swing_speed": 50.0
+"axe_swing_speed": 50
 }
-flavour_class = 0

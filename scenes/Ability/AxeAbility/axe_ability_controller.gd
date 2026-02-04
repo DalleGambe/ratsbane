@@ -43,17 +43,9 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrade:D
 			temp_timer.start()
 			%CooldownTimer.stop()
 			%CooldownTimer.wait_time = base_wait_time * (1-percent_reduction)
-			ability_upgrade.update_value("axe_summon_rate",0.20*100)
-			#ability_upgrade.description = tr("CHONGA_BONGA_DESCRIPTION").format({"axe_summon_rate": percent_reduction*100})
 		"double_bladed_axe_damage":
 			additional_damage_percentage = 1 + current_upgrade["double_bladed_axe_damage"]["quantity"] * 0.25
-			ability_upgrade.update_value("axe_damage",0.25*100)
-			#ability_upgrade.description = tr("GREAT_FOR_SHAVING_DESCRIPTION").format({"axe_damage": additional_damage_percentage*100})
 		"double_bladed_axe_speed":
 			additional_speed_of_axe = 1 + current_upgrade["double_bladed_axe_speed"]["quantity"] * 0.50
-			ability_upgrade.update_value("axe_swing_speed",0.50*100)
-			#ability_upgrade.description = tr("LUMBER_STUMBLER_DESCRIPTION").format({"axe_swing_speed": additional_speed_of_axe*100})
 		"double_bladed_axe_range":
 			additional_throw_range = 1 + current_upgrade["double_bladed_axe_range"]["quantity"] * 0.25
-			ability_upgrade.update_value("axe_swing_range",0.25*100)
-			#ability_upgrade.description = tr("BUSH_TRIMMER_DESCRIPTION").format({"axe_swing_range": additional_throw_range*100})

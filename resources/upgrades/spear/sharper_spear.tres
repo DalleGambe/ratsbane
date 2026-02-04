@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://ds7dx8ho70nsh"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://ds7dx8ho70nsh"]
 
-[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_g12ix"]
+[ext_resource type="Script" uid="uid://dswsg1ir02nvj" path="res://resources/upgrades/ability_upgrade.gd" id="1_g12ix"]
 
 [resource]
 script = ExtResource("1_g12ix")
@@ -9,6 +9,5 @@ name = "TOOTHY_FLINT_NAME"
 description = "TOOTHY_FLINT_DESCRIPTION"
 amount_that_can_be_picked = 3
 values = {
-"spear_damage": 20.0
+"spear_damage": 20
 }
-flavour_class = 0

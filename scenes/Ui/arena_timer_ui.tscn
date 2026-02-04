@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6s8261mrng3s"]
+[gd_scene format=3 uid="uid://b6s8261mrng3s"]
 
-[ext_resource type="Script" path="res://scenes/Ui/arena_timer_ui.gd" id="1_ut0fg"]
-[ext_resource type="Script" path="res://scenes/Ui/player_health_bar.gd" id="2_spcjt"]
-[ext_resource type="Script" path="res://scenes/Ui/ability_power_bar.gd" id="3_imxhw"]
+[ext_resource type="Script" uid="uid://sgcfiynlxi0f" path="res://scenes/Ui/arena_timer_ui.gd" id="1_ut0fg"]
+[ext_resource type="Script" uid="uid://d6aivp2pukpp" path="res://scenes/Ui/player_health_bar.gd" id="2_spcjt"]
+[ext_resource type="Script" uid="uid://fp1xn6n1ad3r" path="res://scenes/Ui/ability_power_bar.gd" id="3_imxhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgeja"]
 
@@ -68,14 +68,14 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vccxm"]
 _data = {
-"RESET": SubResource("Animation_oq6j6"),
-"shake": SubResource("Animation_7121x")
+&"RESET": SubResource("Animation_oq6j6"),
+&"shake": SubResource("Animation_7121x")
 }
 
-[node name="ArenaTimerUi" type="CanvasLayer"]
+[node name="ArenaTimerUi" type="CanvasLayer" unique_id=1228650870]
 script = ExtResource("1_ut0fg")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1575673199]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -86,13 +86,13 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer" unique_id=173249039]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
-[node name="PlayerHealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer3"]
+[node name="PlayerHealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer3" unique_id=565093089]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lgeja")
 custom_minimum_size = Vector2(32, 8)
@@ -106,13 +106,13 @@ script = ExtResource("2_spcjt")
 color1 = Color(0.909804, 0.270588, 0.211765, 1)
 color2 = Color(0.716647, 0.176157, 0.131945, 1)
 
-[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer3/PlayerHealthBar"]
+[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer3/PlayerHealthBar" unique_id=1895510083]
 wait_time = 0.2
 autostart = true
 
-[node name="PlayerHealthDisplay" type="Label" parent="MarginContainer/VBoxContainer3/PlayerHealthBar"]
+[node name="PlayerHealthDisplay" type="Label" parent="MarginContainer/VBoxContainer3/PlayerHealthBar" unique_id=9829104]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 71.0
 offset_top = 4.0
 offset_right = 98.0
@@ -125,7 +125,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 15
 text = "0/1"
 
-[node name="AbilityPowerBar" type="ProgressBar" parent="MarginContainer/VBoxContainer3"]
+[node name="AbilityPowerBar" type="ProgressBar" parent="MarginContainer/VBoxContainer3" unique_id=1892813723]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_eragc")
 custom_minimum_size = Vector2(32, 8)
@@ -137,34 +137,34 @@ value = 1.0
 show_percentage = false
 script = ExtResource("3_imxhw")
 
-[node name="AbilityVisualCooldownTimer" type="Timer" parent="MarginContainer/VBoxContainer3/AbilityPowerBar"]
+[node name="AbilityVisualCooldownTimer" type="Timer" parent="MarginContainer/VBoxContainer3/AbilityPowerBar" unique_id=1261896130]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="AbilityVisualDurationTimer" type="Timer" parent="MarginContainer/VBoxContainer3/AbilityPowerBar"]
+[node name="AbilityVisualDurationTimer" type="Timer" parent="MarginContainer/VBoxContainer3/AbilityPowerBar" unique_id=331778980]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer3" unique_id=1229047582]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer3/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer3/VBoxContainer" unique_id=697151458]
 visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/text_highlight_v_padding = 6
 theme_override_constants/outline_size = 16
+theme_override_constants/text_highlight_v_padding = 6
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[color=green]C[/color][color=blue]o[/color][color=red]m[/color][color=purple]b[/color][color=white]o[/color]"
 fit_content = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=248424824]
 layout_mode = 2
 
-[node name="TimeLeft" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="TimeLeft" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1007142914]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -173,7 +173,7 @@ theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
 theme_override_constants/outline_size = 8
 horizontal_alignment = 1
 
-[node name="AnnouncementLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="AnnouncementLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1088892484]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -185,7 +185,7 @@ theme_override_font_sizes/font_size = 20
 text = "ONE_MINUTE_REMAINING_LABEL"
 horizontal_alignment = 1
 
-[node name="BossHealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="BossHealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1211486146]
 unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_lgeja")
@@ -197,15 +197,13 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/BossHealthBar"]
-libraries = {
-"": SubResource("AnimationLibrary_vccxm")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/BossHealthBar" unique_id=343738189]
+libraries/ = SubResource("AnimationLibrary_vccxm")
 
-[node name="BossHealthDisplay" type="Label" parent="MarginContainer/VBoxContainer/BossHealthBar"]
+[node name="BossHealthDisplay" type="Label" parent="MarginContainer/VBoxContainer/BossHealthBar" unique_id=1844174606]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 71.0
 offset_top = 4.0
 offset_right = 98.0
@@ -217,13 +215,13 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 15
 text = "AAAAA"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=1087858894]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 alignment = 2
 
-[node name="DamageScore" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="DamageScore" type="Label" parent="MarginContainer/VBoxContainer2" unique_id=1423697613]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -233,5 +231,10 @@ theme_override_constants/outline_size = 8
 text = "0"
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1073797818]
 layout_mode = 2
+
+[node name="NearMissTimer" type="Timer" parent="." unique_id=217104620]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true

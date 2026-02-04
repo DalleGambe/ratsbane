@@ -8,17 +8,21 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="RatsBane"
 run/main_scene="res://scenes/Ui/MainMenu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Ratsbane"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.247059, 0.14902, 0.192157, 1)
-boot_splash/image="res://icon.png"
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/use_filter=false
+boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
@@ -38,7 +42,7 @@ MenuManager="*res://scenes/Autoload/menu_manager.tscn"
 GameEvents="*res://scenes/Autoload/game_events.tscn"
 MusicPlayer="*res://scenes/Autoload/music_player.tscn"
 ScreenTransition="*res://scenes/Autoload/screen_transition.tscn"
-DamageNumberManager="*res://scenes/Autoload/damage_number_manager.tscn"
+FloatingTextManager="*res://scenes/Autoload/floating_text_manager.tscn"
 MetaUpgradeManager="*res://scenes/Autoload/MetaUpgradeManager.tscn"
 ModifierManager="*res://scenes/Manager/ModifierManager.tscn"
 TokenManager="*res://scenes/Manager/TokenManager/TokenManager.tscn"

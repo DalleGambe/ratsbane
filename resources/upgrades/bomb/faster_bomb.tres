@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://dk8eflqgybd6x"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://dk8eflqgybd6x"]
 
-[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_1iie7"]
+[ext_resource type="Script" uid="uid://dswsg1ir02nvj" path="res://resources/upgrades/ability_upgrade.gd" id="1_1iie7"]
 
 [resource]
 script = ExtResource("1_1iie7")
@@ -9,6 +9,5 @@ name = "FASTER_FASTER_NAME"
 description = "FASTER_FASTER_DESCRIPTION"
 amount_that_can_be_picked = 2
 values = {
-"bomb_summon_speed": 15.0
+"bomb_summon_speed": 15
 }
-flavour_class = 0

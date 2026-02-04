@@ -59,7 +59,7 @@ func _ready() -> void:
 	upgrade_pool.add_item(pinball_massacre, 10)
 	upgrade_pool.add_item(sword_rate_upgrade, 15)
 	upgrade_pool.add_item(sword_damage_upgrade, 15)
-	upgrade_pool.add_item(plasma_sword_upgrade, 5000)
+	upgrade_pool.add_item(plasma_sword_upgrade, 5)
 	upgrade_pool.add_item(sword_chop_chop_upgrade, 10)
 	upgrade_pool.add_item(rat_player_movement_speed_upgrade, 5)
 	arena_stats_manager_instance = arena_stats_manager.instantiate()

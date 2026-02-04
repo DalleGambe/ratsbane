@@ -18,7 +18,7 @@ func _ready() -> void:
 func set_player_score(score: Dictionary, rank: int) -> void:
 	ranking_label.text = str(rank) + "#"
 	name_label.text = score["player_name"]
-	score_label.text = str(score["score"])
+	score_label.text = Util.format_float_to_string(score["score"])
 
 func _on_mouse_entered() -> void:
 	is_hovered = true

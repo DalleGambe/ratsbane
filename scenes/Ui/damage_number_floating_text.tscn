@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvpk485rlc2ap"]
+[gd_scene format=3 uid="uid://dvpk485rlc2ap"]
 
-[ext_resource type="Script" path="res://scenes/Ui/floating_text.gd" id="1_iv6j3"]
+[ext_resource type="Script" uid="uid://5etomle40rh" path="res://scenes/Ui/damage_number_floating_text.gd" id="1_powpa"]
 
-[node name="FloatingText" type="Node2D"]
-script = ExtResource("1_iv6j3")
+[node name="FloatingText" type="Node2D" unique_id=620785423]
+script = ExtResource("1_powpa")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2110128173]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 32)
 offset_left = -50.0

@@ -78,7 +78,6 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrade:D
 		"matryoshka_bomb":
 			amount_of_children_to_spawn = current_upgrade["matryoshka_bomb"]["quantity"] * 3
 			# Update value of upgrade
-			#ability_upgrade.description = tr("MATRYOSHKA_BOMB_DESCRIPTION").format({"baby_bomb_count": amount_of_children_to_spawn})
 			ability_upgrade.update_value("baby_bomb_count",3)
 		"faster_bomb":
 			var percent_reduction = current_upgrade["faster_bomb"]["quantity"] * 0.15
@@ -87,12 +86,9 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrade:D
 			%CooldownTimer.stop()
 			%CooldownTimer.wait_time = base_wait_time * (1-percent_reduction)
 			# Update value of upgrade
-			ability_upgrade.update_value("bomb_summon_speed",0.15*100)
-			#ability_upgrade.description = tr("FASTER_FASTER_DESCRIPTION").format({"bomb_summon_speed": percent_reduction*100})
+			ability_upgrade.update_value("bomb_summon_speed", 15)
 		"more_boom":
 			amount_of_big_bombs_to_spawn = current_upgrade["more_boom"]["quantity"] + 1
-			# Update value of upgrade
-			#ability_upgrade.description = tr("MORE_BOOM_DESCRIPTION").format({"bomb_count": amount_of_big_bombs_to_spawn+1})
 			ability_upgrade.update_value("bomb_count",amount_of_big_bombs_to_spawn+1)
 		"bombastic":
 			explosion_radius = 1 + (0.25 * current_upgrade["bombastic"]["quantity"])

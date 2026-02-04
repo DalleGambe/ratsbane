@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://beg2vxl3xxjnd"]
+[gd_scene format=3 uid="uid://beg2vxl3xxjnd"]
 
-[ext_resource type="Script" path="res://scenes/Ui/meta_upgrade_card.gd" id="1_ucnx4"]
+[ext_resource type="Script" uid="uid://bmhl1by3qpmaq" path="res://scenes/Ui/meta_upgrade_card.gd" id="1_ucnx4"]
 [ext_resource type="PackedScene" uid="uid://dkjvpc2spqcpc" path="res://scenes/Component/RandomStreamPlayerComponent/random_stream_player_component.tscn" id="2_34qu2"]
 [ext_resource type="AudioStream" uid="uid://cw4hwm5s1ooug" path="res://assets/audio/sfx/upgrade card/card_rattle_1.wav" id="5_0mgpp"]
 [ext_resource type="AudioStream" uid="uid://c22th3j1qr5rg" path="res://assets/audio/sfx/upgrade card/card_enter_1.wav" id="5_jpy38"]
@@ -280,13 +280,13 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cgyji"]
 _data = {
-"RESET": SubResource("Animation_keutj"),
-"enter_screen": SubResource("Animation_awfe7"),
-"on_card_hover": SubResource("Animation_n4l8d"),
-"on_click": SubResource("Animation_6i2vq"),
-"on_cursor_exit": SubResource("Animation_5ts1y"),
-"purchase": SubResource("Animation_6ghto"),
-"selected": SubResource("Animation_2cqgq")
+&"RESET": SubResource("Animation_keutj"),
+&"enter_screen": SubResource("Animation_awfe7"),
+&"on_card_hover": SubResource("Animation_n4l8d"),
+&"on_click": SubResource("Animation_6i2vq"),
+&"on_cursor_exit": SubResource("Animation_5ts1y"),
+&"purchase": SubResource("Animation_6ghto"),
+&"selected": SubResource("Animation_2cqgq")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikng7"]
@@ -305,30 +305,28 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="MetaUpgradeCard" type="PanelContainer" groups=["meta_upgrade_card"]]
+[node name="MetaUpgradeCard" type="PanelContainer" unique_id=737097260 groups=["meta_upgrade_card"]]
 custom_minimum_size = Vector2(150, 0)
 offset_right = 234.0
 offset_bottom = 210.0
 pivot_offset = Vector2(139, 116)
 script = ExtResource("1_ucnx4")
 
-[node name="AudioPlayerComponent" parent="." instance=ExtResource("2_34qu2")]
+[node name="AudioPlayerComponent" parent="." unique_id=1552307732 instance=ExtResource("2_34qu2")]
 bus = &"Sfx"
 min_pitch = 1.0
 max_pitch = 1.0
 audio_stream_list = Array[AudioStream]([ExtResource("5_jpy38"), ExtResource("10_8jxk5"), ExtResource("5_0mgpp")])
 
-[node name="HoverAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="HoverAnimationPlayer" type="AnimationPlayer" parent="." unique_id=609985589]
 unique_name_in_owner = true
 root_node = NodePath("../AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=91469562]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_cgyji")
-}
+libraries/ = SubResource("AnimationLibrary_cgyji")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1634407655]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 6
@@ -336,18 +334,18 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2079188634]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 12
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=972363254]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"AlternatePanelContainer"
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1775809594]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
@@ -360,7 +358,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="Description Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Description Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1784146378]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
@@ -374,15 +372,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=937119041]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1770015960]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1546184516]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
@@ -394,7 +392,7 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1486007370]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -405,13 +403,13 @@ text = "50/200"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=2018670211]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Control" unique_id=655145832]
 custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
+layout_mode = 0
 offset_left = -10.0
 offset_top = -14.0
 offset_right = 22.0
@@ -421,12 +419,12 @@ size_flags_vertical = 0
 mouse_filter = 2
 texture = ExtResource("6_v23fr")
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=682704572]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/Control"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/Control" unique_id=1144853318]
 custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
+layout_mode = 0
 offset_left = 145.0
 offset_top = -32.0
 offset_right = 180.0
@@ -436,7 +434,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("8_0p2dc")
 
-[node name="QuantityLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Control/TextureRect2"]
+[node name="QuantityLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Control/TextureRect2" unique_id=31593400]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 9.0
@@ -454,7 +452,7 @@ text = "X9"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PurchaseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("9_qdecm")]
+[node name="PurchaseButton" parent="MarginContainer/VBoxContainer" unique_id=1191211723 instance=ExtResource("9_qdecm")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "PURCHASE_BUTTON"

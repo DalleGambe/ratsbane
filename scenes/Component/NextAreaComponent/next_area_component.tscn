@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6kghh3sc55c2"]
+[gd_scene format=3 uid="uid://c6kghh3sc55c2"]
 
-[ext_resource type="Script" path="res://next_area_area_2d.gd" id="1_3vk0j"]
+[ext_resource type="Script" uid="uid://dbvr441tw0b7f" path="res://next_area_area_2d.gd" id="1_3vk0j"]
 [ext_resource type="Texture2D" uid="uid://kqi56t2gravh" path="res://assets/environment/walls/brick_wall.png" id="2_7trsi"]
-[ext_resource type="Script" path="res://scenes/Component/RandomAudioPlayerComponent/random_audio_player_component.gd" id="2_84shn"]
+[ext_resource type="Script" uid="uid://bgaakab4p7grn" path="res://scenes/Component/RandomAudioPlayerComponent/random_audio_player_component.gd" id="2_84shn"]
 [ext_resource type="AudioStream" uid="uid://b26vkohxr0bsj" path="res://assets/audio/sfx/Environment/door/appear/door_plop_1.wav" id="3_201vo"]
 [ext_resource type="Texture2D" uid="uid://de7nlmxd0wg7i" path="res://assets/environment/doors/single_brick_door.png" id="3_lvmql"]
 [ext_resource type="Texture2D" uid="uid://rlsc85e1xjts" path="res://assets/environment/doors/single_brick_door_closed.png" id="4_nuecy"]
@@ -137,9 +137,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ov8v3"]
 _data = {
-"RESET": SubResource("Animation_h1cki"),
-"close_door": SubResource("Animation_o85tr"),
-"reveal_door": SubResource("Animation_5hg5n")
+&"RESET": SubResource("Animation_h1cki"),
+&"close_door": SubResource("Animation_o85tr"),
+&"reveal_door": SubResource("Animation_5hg5n")
 }
 
 [sub_resource type="Curve" id="Curve_acd0m"]
@@ -164,7 +164,7 @@ scale_curve = SubResource("CurveTexture_hvlv1")
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gs4v"]
 radius = 12.0416
 
-[node name="NextAreaComponent" type="CharacterBody2D" groups=["next_area_door"]]
+[node name="NextAreaComponent" type="CharacterBody2D" unique_id=1136473835 groups=["next_area_door"]]
 process_mode = 3
 collision_mask = 0
 script = ExtResource("1_3vk0j")
@@ -172,51 +172,49 @@ wall_sprite = ExtResource("2_7trsi")
 door_sprite = ExtResource("3_lvmql")
 door_sprite_closed = ExtResource("4_nuecy")
 
-[node name="NextArea" type="Area2D" parent="."]
+[node name="NextArea" type="Area2D" parent="." unique_id=1086547867]
 unique_name_in_owner = true
 collision_layer = 128
 collision_mask = 2
 
-[node name="CollisionDoorDetectionShape" type="CollisionShape2D" parent="NextArea"]
+[node name="CollisionDoorDetectionShape" type="CollisionShape2D" parent="NextArea" unique_id=1227838417]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_rtxof")
 disabled = true
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=1568280206]
 
-[node name="DoorSprite2D" type="Sprite2D" parent="Visuals"]
+[node name="DoorSprite2D" type="Sprite2D" parent="Visuals" unique_id=1114042904]
 unique_name_in_owner = true
 
-[node name="WallSprite2D" type="Sprite2D" parent="Visuals"]
+[node name="WallSprite2D" type="Sprite2D" parent="Visuals" unique_id=1938501005]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=546991550]
 shape = SubResource("RectangleShape2D_nxif2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=463771045]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_ov8v3")
-}
+libraries/ = SubResource("AnimationLibrary_ov8v3")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=121952397]
 unique_name_in_owner = true
 rotation = -0.74557
 emitting = false
 amount = 1
-process_material = SubResource("ParticleProcessMaterial_2es82")
 one_shot = true
 fixed_fps = 0
 interpolate = false
+process_material = SubResource("ParticleProcessMaterial_2es82")
 
-[node name="RandomAudioPlayerComponent" type="AudioStreamPlayer2D" parent="."]
+[node name="RandomAudioPlayerComponent" type="AudioStreamPlayer2D" parent="." unique_id=935763658]
 script = ExtResource("2_84shn")
 audio_stream_list = Array[AudioStream]([ExtResource("3_201vo")])
 
-[node name="GuardDoorDetectionRange" type="Area2D" parent="."]
+[node name="GuardDoorDetectionRange" type="Area2D" parent="." unique_id=1597399879]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardDoorDetectionRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardDoorDetectionRange" unique_id=827335296]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_4gs4v")
 disabled = true

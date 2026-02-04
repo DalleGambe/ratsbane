@@ -43,7 +43,6 @@ func _on_open_door_timer_timeout() -> void:
 func _on_music_momentum_timer_timout() -> void:
 	MusicPlayer.switch_music_momentum_to(1.2)
 	random_steam_player_component.play_random_audio()
-
 func _on_difficulty_interval_timer_timeout() -> void:
 		arena_difficulity+=1
 		difficulity_interval_timer.wait_time = DIFFICULTY_INTERVAL

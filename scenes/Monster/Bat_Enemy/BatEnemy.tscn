@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://b76xob2qa5xsc"]
+[gd_scene format=3 uid="uid://b76xob2qa5xsc"]
 
-[ext_resource type="Script" path="res://scenes/Monster/Bat_Enemy/bat_enemy.gd" id="1_a7pn5"]
+[ext_resource type="Script" uid="uid://bupnwmn8i3f6x" path="res://scenes/Monster/Bat_Enemy/bat_enemy.gd" id="1_a7pn5"]
 [ext_resource type="PackedScene" uid="uid://cr5u7q0jvdgku" path="res://scenes/Component/HealthComponent/health_component.tscn" id="2_4fpjc"]
 [ext_resource type="PackedScene" uid="uid://brbgfhymdu1xl" path="res://scenes/Component/ExperienceDropComponent/VialDropComponent/VialDropComponent.tscn" id="3_wvboe"]
 [ext_resource type="PackedScene" uid="uid://b3g31a0xma1uo" path="res://scenes/Component/HurtboxComponent/hurtbox_component.tscn" id="4_27t8l"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bo47tcyr1j6uu" path="res://scenes/Component/DeathComponent/death_component.tscn" id="4_pt02j"]
 [ext_resource type="Texture2D" uid="uid://bi7nsmjfoud1g" path="res://assets/monsters/Bat/regular_bat.png" id="5_71arf"]
 [ext_resource type="PackedScene" uid="uid://cdsgd1iyk7brk" path="res://scenes/Component/BloodSplatterComponent/BloodSplatterComponent.tscn" id="5_o032i"]
-[ext_resource type="Shader" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="5_vrph5"]
-[ext_resource type="Script" path="res://scenes/Component/KnockbackComponent/knockback_component.gd" id="6_8k1xa"]
+[ext_resource type="Shader" uid="uid://cxngm2pwabf0j" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="5_vrph5"]
+[ext_resource type="Script" uid="uid://cpakvr4peq365" path="res://scenes/Component/KnockbackComponent/knockback_component.gd" id="6_8k1xa"]
 [ext_resource type="PackedScene" uid="uid://dd8ouvr1dwxs7" path="res://scenes/Component/RandomAudioPlayerComponent/RandomAudioPlayerComponent.tscn" id="9_2v11i"]
 [ext_resource type="AudioStream" uid="uid://cylao8x5bfoua" path="res://assets/audio/sfx/bat_enemy/bat_die_1.wav" id="10_kldyb"]
 [ext_resource type="AudioStream" uid="uid://cjsdmr7lpwnqe" path="res://assets/audio/sfx/bat_enemy/bat_die_2.wav" id="11_3f4rd"]
@@ -100,16 +100,16 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jvmpt"]
 _data = {
-"RESET": SubResource("Animation_rbctb"),
-"fly": SubResource("Animation_05gdn")
+&"RESET": SubResource("Animation_rbctb"),
+&"fly": SubResource("Animation_05gdn")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjvd1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mept0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0cv1"]
 resource_local_to_scene = true
 shader = ExtResource("5_vrph5")
-shader_parameter/lerp_percent = null
+shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feler"]
 radius = 8.0
@@ -119,73 +119,72 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_01yc8"]
 radius = 6.0
 
-[node name="BatEnemy" type="CharacterBody2D" groups=["enemy", "flying_enemy"]]
+[node name="BatEnemy" type="CharacterBody2D" unique_id=1080934239 groups=["enemy", "flying_enemy"]]
+z_index = 5
 collision_layer = 64
 collision_mask = 65
 motion_mode = 1
 script = ExtResource("1_a7pn5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2118553587]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_jvmpt")
-}
-autoplay = "fly"
+libraries/ = SubResource("AnimationLibrary_jvmpt")
+autoplay = &"fly"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1569394992]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_pjvd1")
 
-[node name="Health" parent="." instance=ExtResource("2_4fpjc")]
+[node name="Health" parent="." unique_id=2091845390 instance=ExtResource("2_4fpjc")]
 unique_name_in_owner = true
 max_health = 75.0
 
-[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_wvboe")]
+[node name="VialDropComponent" parent="." unique_id=1665077166 node_paths=PackedStringArray("health_component") instance=ExtResource("3_wvboe")]
 health_component = NodePath("../Health")
 
-[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_n7l52")]
+[node name="HitFlashComponent" parent="." unique_id=1859463853 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_n7l52")]
 health_component = NodePath("../Health")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_mept0")
+hit_flash_material = SubResource("ShaderMaterial_r0cv1")
 
-[node name="KnockbackComponent" type="Node" parent="."]
+[node name="KnockbackComponent" type="Node" parent="." unique_id=1690385364]
 script = ExtResource("6_8k1xa")
 
-[node name="VelocityComponent" parent="." instance=ExtResource("4_76h0g")]
+[node name="VelocityComponent" parent="." unique_id=1130975468 instance=ExtResource("4_76h0g")]
 unique_name_in_owner = true
 max_speed = 196
 acceleration = 1.0
 
-[node name="BloodSplatterComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_o032i")]
+[node name="BloodSplatterComponent" parent="." unique_id=2044076356 node_paths=PackedStringArray("health_component") instance=ExtResource("5_o032i")]
 health_component = NodePath("../Health")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("4_pt02j")]
+[node name="DeathComponent" parent="." unique_id=1478002030 node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("4_pt02j")]
 health_component = NodePath("../Health")
 sprite = NodePath("../Visuals/Sprite2D")
 random_audio_player = NodePath("../RandomSfxPlayerComponent")
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component", "blood_splatter_component") instance=ExtResource("4_27t8l")]
+[node name="Hurtbox" parent="." unique_id=1665931593 node_paths=PackedStringArray("health_component", "blood_splatter_component") instance=ExtResource("4_27t8l")]
 health_component = NodePath("../Health")
 blood_splatter_component = NodePath("../BloodSplatterComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2067763757]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_feler")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=342563430]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1342270929]
 material = SubResource("ShaderMaterial_1rajw")
 position = Vector2(0, -4)
 texture = ExtResource("5_71arf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=24388161]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_01yc8")
 
-[node name="RandomSfxPlayerComponent" parent="." instance=ExtResource("9_2v11i")]
+[node name="RandomSfxPlayerComponent" parent="." unique_id=1267957176 instance=ExtResource("9_2v11i")]
 audio_stream_list = Array[AudioStream]([ExtResource("10_kldyb"), ExtResource("11_3f4rd"), ExtResource("12_kgcfk"), ExtResource("13_107m3"), ExtResource("14_p62bk")])
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=365369293]
 position = Vector2(0, -4)

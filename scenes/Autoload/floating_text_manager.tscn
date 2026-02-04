@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://4ggxbg2cxpq1"]
+
+[ext_resource type="Script" uid="uid://b0txapywvl7qs" path="res://scenes/Autoload/floating_text_manager.gd" id="1_mnolq"]
+
+[node name="FloatingTextManager" type="Node" unique_id=400888278]
+script = ExtResource("1_mnolq")

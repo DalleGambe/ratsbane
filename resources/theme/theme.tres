@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=48 format=3 uid="uid://bmh7oa1jgdg2c"]
+[gd_resource type="Theme" format=3 uid="uid://bmh7oa1jgdg2c"]
 
 [ext_resource type="StyleBox" uid="uid://djuxrll4snvhx" path="res://scenes/Textures/head_box_panel_container.tres" id="1_0hrpk"]
 [ext_resource type="FontFile" uid="uid://ditd1vmxkyx1t" path="res://resources/theme/font/KarenFat.ttf" id="1_6viph"]

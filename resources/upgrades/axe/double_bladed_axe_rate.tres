@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://oja3uqfykvtp"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://oja3uqfykvtp"]
 
-[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_sewh0"]
+[ext_resource type="Script" uid="uid://dswsg1ir02nvj" path="res://resources/upgrades/ability_upgrade.gd" id="1_sewh0"]
 
 [resource]
 script = ExtResource("1_sewh0")
@@ -9,6 +9,5 @@ name = "CHONGA_BONGA_NAME"
 description = "CHONGA_BONGA_DESCRIPTION"
 amount_that_can_be_picked = 2
 values = {
-"axe_summon_rate": 20.0
+"axe_summon_rate": 20
 }
-flavour_class = 0

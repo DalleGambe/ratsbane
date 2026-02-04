@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://x3rpui2fq741"]
+[gd_scene format=3 uid="uid://x3rpui2fq741"]
 
-[ext_resource type="Script" path="res://scenes/Game_Object/Experience_Vial/experience_vial.gd" id="1_dibm0"]
-[ext_resource type="Texture2D" uid="uid://7u7gcndkpjl1" path="res://assets/pickups/Experience-potion.png" id="2_b6udi"]
+[ext_resource type="Script" uid="uid://cljak5urtmmio" path="res://scenes/Game_Object/Experience_Vial/experience_vial.gd" id="1_dibm0"]
+[ext_resource type="Texture2D" uid="uid://b4lhbpxkl7u1j" path="res://assets/pickups/experience_potion.png" id="2_ro1ju"]
 [ext_resource type="PackedScene" uid="uid://dd8ouvr1dwxs7" path="res://scenes/Component/RandomAudioPlayerComponent/RandomAudioPlayerComponent.tscn" id="3_ckpuc"]
 [ext_resource type="AudioStream" uid="uid://cj6dh4gmqh5x5" path="res://assets/audio/sfx/exp_pick_up/exp_pickup_1.wav" id="4_jb53f"]
 [ext_resource type="AudioStream" uid="uid://b3ibwn6c56frw" path="res://assets/audio/sfx/exp_pick_up/exp_pickup_2.wav" id="5_0iyko"]
@@ -11,23 +11,22 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qn1oj"]
 
-[node name="ExperienceVial" type="Node2D"]
+[node name="ExperienceVial" type="Node2D" unique_id=1296924804]
 script = ExtResource("1_dibm0")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1275461532]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=712635358]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_qn1oj")
 
-[node name="ExpSprite2D" type="Sprite2D" parent="."]
+[node name="ExpSprite2D" type="Sprite2D" parent="." unique_id=1990147183]
 unique_name_in_owner = true
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_b6udi")
+texture = ExtResource("2_ro1ju")
 
-[node name="RandomSfxPlayerComponent" parent="." instance=ExtResource("3_ckpuc")]
+[node name="RandomSfxPlayerComponent" parent="." unique_id=660225243 instance=ExtResource("3_ckpuc")]
 unique_name_in_owner = true
 min_pitch = 1.0
 max_pitch = 1.5

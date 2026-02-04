@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccy6eihds3kfn"]
+[gd_scene format=3 uid="uid://ccy6eihds3kfn"]
 
-[ext_resource type="Script" path="res://scenes/Monster/Sorcerer_Apprentice/sorcerer_apprentice_enemy.gd" id="1_e6e4n"]
+[ext_resource type="Script" uid="uid://chca3lrjsa0f8" path="res://scenes/Monster/Sorcerer_Apprentice/sorcerer_apprentice_enemy.gd" id="1_e6e4n"]
 [ext_resource type="PackedScene" uid="uid://cr5u7q0jvdgku" path="res://scenes/Component/HealthComponent/health_component.tscn" id="2_dembf"]
 [ext_resource type="PackedScene" uid="uid://buxfdux1b1bn" path="res://scenes/Component/VelocityComponent/velocity_component.tscn" id="3_e8l8g"]
 [ext_resource type="PackedScene" uid="uid://brbgfhymdu1xl" path="res://scenes/Component/ExperienceDropComponent/VialDropComponent/VialDropComponent.tscn" id="4_647um"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dg0tijy0w5wft" path="res://scenes/Game_Object/Vacuum_token/vacuum_token.tscn" id="6_vijjh"]
 [ext_resource type="PackedScene" uid="uid://dk5m6g1n17enx" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.tscn" id="8_476si"]
 [ext_resource type="PackedScene" uid="uid://b6p30hplavobi" path="res://scenes/Monster/Projectiles/Arcane Bolt/arcane_bolt_abillity_controller.tscn" id="9_2oot3"]
-[ext_resource type="Shader" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="9_qp3r1"]
+[ext_resource type="Shader" uid="uid://cxngm2pwabf0j" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="9_qp3r1"]
 [ext_resource type="PackedScene" uid="uid://b08stlreoo7bn" path="res://scenes/Monster/Projectiles/Arcane Bolt/arcane_bolt_enemy_projectile.tscn" id="10_ir5tw"]
 [ext_resource type="PackedScene" uid="uid://cdsgd1iyk7brk" path="res://scenes/Component/BloodSplatterComponent/BloodSplatterComponent.tscn" id="11_42t4v"]
 [ext_resource type="PackedScene" uid="uid://bo47tcyr1j6uu" path="res://scenes/Component/DeathComponent/death_component.tscn" id="12_elopt"]
@@ -182,15 +182,15 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5qe4o"]
 _data = {
-"RESET": SubResource("Animation_li1jw"),
-"summon_arcane_bolt": SubResource("Animation_q60fn"),
-"walk": SubResource("Animation_yfcoh")
+&"RESET": SubResource("Animation_li1jw"),
+&"summon_arcane_bolt": SubResource("Animation_q60fn"),
+&"walk": SubResource("Animation_yfcoh")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruov5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xeaig"]
 resource_local_to_scene = true
 shader = ExtResource("9_qp3r1")
-shader_parameter/lerp_percent = null
+shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xd0u2"]
 radius = 9.0
@@ -198,102 +198,101 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_t37m6"]
 radius = 7.0
 
-[node name="SorcererApprenticeEnemy" type="CharacterBody2D" groups=["enemy"]]
+[node name="SorcererApprenticeEnemy" type="CharacterBody2D" unique_id=1148437697 groups=["enemy"]]
+z_index = 5
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_e6e4n")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=747270804]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_5qe4o")
-}
-autoplay = "walk"
+libraries/ = SubResource("AnimationLibrary_5qe4o")
+autoplay = &"walk"
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_dembf")]
+[node name="HealthComponent" parent="." unique_id=1780281586 instance=ExtResource("2_dembf")]
 unique_name_in_owner = true
 max_health = 125.0
 
-[node name="VelocityComponent" parent="." instance=ExtResource("3_e8l8g")]
+[node name="VelocityComponent" parent="." unique_id=675796733 instance=ExtResource("3_e8l8g")]
 unique_name_in_owner = true
 max_speed = 120
 acceleration = 10.0
 
-[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_647um")]
+[node name="VialDropComponent" parent="." unique_id=954710300 node_paths=PackedStringArray("health_component") instance=ExtResource("4_647um")]
 unique_name_in_owner = true
 drop_percent = 0.8
 health_component = NodePath("../HealthComponent")
 
-[node name="TokenDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_uestt")]
+[node name="TokenDropComponent" parent="." unique_id=1702969235 node_paths=PackedStringArray("health_component") instance=ExtResource("5_uestt")]
 health_component = NodePath("../HealthComponent")
 token_scene = ExtResource("6_vijjh")
 
-[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_476si")]
+[node name="HitFlashComponent" parent="." unique_id=525087458 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_476si")]
 unique_name_in_owner = true
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_ruov5")
+hit_flash_material = SubResource("ShaderMaterial_xeaig")
 
-[node name="Abilities" type="Node" parent="."]
+[node name="Abilities" type="Node" parent="." unique_id=218101833]
 
-[node name="ArcaneBoltAbillityController" parent="Abilities" instance=ExtResource("9_2oot3")]
+[node name="ArcaneBoltAbillityController" parent="Abilities" unique_id=67850350 instance=ExtResource("9_2oot3")]
 unique_name_in_owner = true
 arcane_bolt_projectile_scene = ExtResource("10_ir5tw")
 
-[node name="BloodSplatterComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_42t4v")]
+[node name="BloodSplatterComponent" parent="." unique_id=1942828966 node_paths=PackedStringArray("health_component") instance=ExtResource("11_42t4v")]
 unique_name_in_owner = true
 health_component = NodePath("../HealthComponent")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("12_elopt")]
+[node name="DeathComponent" parent="." unique_id=2091143825 node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("12_elopt")]
 unique_name_in_owner = true
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 random_audio_player = NodePath("../RandomDeathSFXPlayer")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "blood_splatter_component") instance=ExtResource("13_yb48l")]
+[node name="HurtboxComponent" parent="." unique_id=1187653986 node_paths=PackedStringArray("health_component", "blood_splatter_component") instance=ExtResource("13_yb48l")]
 health_component = NodePath("../HealthComponent")
 blood_splatter_component = NodePath("../BloodSplatterComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1424018767]
 position = Vector2(0, 1)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_xd0u2")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=462637417]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=402496682]
 unique_name_in_owner = true
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("14_df3mv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1700063944]
 position = Vector2(0, 2)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_t37m6")
 
-[node name="RandomAudioPlayerComponent" parent="." instance=ExtResource("16_wwoea")]
+[node name="RandomAudioPlayerComponent" parent="." unique_id=1064475206 instance=ExtResource("16_wwoea")]
 unique_name_in_owner = true
 volume_db = 4.0
 min_pitch = 0.8
 max_pitch = 1.2
 audio_stream_list = Array[AudioStream]([ExtResource("16_7lrau"), ExtResource("17_qogsr"), ExtResource("18_mmceu")])
 
-[node name="RandomDeathSFXPlayer" parent="." instance=ExtResource("16_wwoea")]
+[node name="RandomDeathSFXPlayer" parent="." unique_id=1770951968 instance=ExtResource("16_wwoea")]
 unique_name_in_owner = true
 volume_db = 16.0
 audio_stream_list = Array[AudioStream]([ExtResource("19_e2tlq")])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1139264439]
 
-[node name="SummonArcaneMissile" parent="." instance=ExtResource("18_6sya4")]
+[node name="SummonArcaneMissile" parent="." unique_id=480407863 instance=ExtResource("18_6sya4")]
 position = Vector2(6, 5)
 emitting = false
 lifetime = 0.01
 scale_amount_min = 1.6
 scale_amount_max = 2.6
 
-[node name="SummonArcaneMissile2" parent="." instance=ExtResource("18_6sya4")]
+[node name="SummonArcaneMissile2" parent="." unique_id=2084755289 instance=ExtResource("18_6sya4")]
 position = Vector2(-6, 5)
 emitting = false
 lifetime = 0.01

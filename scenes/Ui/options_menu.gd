@@ -30,8 +30,9 @@ func _ready() -> void:
 	# Set initial values
 	music_volume_slider.value = SettingsManager.get_music_volume()
 	sfx_volume_slider.value = SettingsManager.get_sfx_volume()
-	music_percentage_label.text = str(music_volume_slider.value*100) + "%"
-	sfx_percentage_label.text = str(sfx_volume_slider.value*100) + "%"
+	music_percentage_label.text = Util.format_float_to_string(music_volume_slider.value * 100) + "%"
+	
+	sfx_percentage_label.text = Util.format_float_to_string(sfx_volume_slider.value*100) + "%"
 	is_show_dmg_number_checked = SettingsManager.get_damage_number_setting()
 	show_dmg_number_check_button.button_pressed = is_show_dmg_number_checked
 	
@@ -89,11 +90,11 @@ func set_selected_language_in_language_option_button() -> void:
 
 func _on_music_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(SettingsManager.music_slider_index, linear_to_db(value))
-	music_percentage_label.text = str(round(music_volume_slider.value * 100)) + "%"  # Round to nearest whole number
+	music_percentage_label.text = Util.format_float_to_string(round(music_volume_slider.value * 100)) + "%"  # Round to nearest whole number
 
 func _on_sfx_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(SettingsManager.sfx_slider_index, linear_to_db(value))	
-	sfx_percentage_label.text = str(round(sfx_volume_slider.value * 100)) + "%"  # Round to nearest whole number
+	sfx_percentage_label.text = Util.format_float_to_string(round(sfx_volume_slider.value * 100)) + "%"  # Round to nearest whole number
 
 func on_window_button_pressed() -> void:
 	window_mode = DisplayServer.window_get_mode()

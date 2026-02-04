@@ -21,7 +21,6 @@ func tween_collect(percentage:float, start_position:Vector2) -> void:
 	
 func collect() -> void:
 	GameEvents.emit_experience_vial_collected(amount_of_experience)
-	#await %RandomSfxPlayerComponent.finished
 	queue_free()
 
 func disable_collision() -> void:
@@ -36,13 +35,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	.set_ease(Tween.EASE_IN)\
 	.set_trans(Tween.TRANS_BACK)
 	tween.tween_property(exp_sprite, "scale", Vector2.ZERO, .15).set_delay(0.65)
-	# wait for all previous tweens to finish before calling the next one
 	tween.chain()
 	tween.tween_callback(collect)
 	var delay:float = 0.55
 	await get_tree().create_timer(delay).timeout
 	AudioManager.create_2d_audio_at_location(global_position,  SoundEffectSettings.SOUND_EFFECT_TYPE.OBJECT_PICKUP, "exp_pickup_1", {
 	"use_combo": true,
-	"combo_step": 0.05,
-	"combo_max_pitch": 0.8
 })

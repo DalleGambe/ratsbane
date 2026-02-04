@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkfcfwn1oxc8e"]
+[gd_scene format=3 uid="uid://dkfcfwn1oxc8e"]
 
-[ext_resource type="Script" path="res://scenes/Autoload/meta_progression.gd" id="1_mamws"]
+[ext_resource type="Script" uid="uid://brcfeer5degeb" path="res://scenes/Autoload/meta_progression.gd" id="1_mamws"]
 
-[node name="MetaProgression" type="Node"]
+[node name="MetaProgression" type="Node" unique_id=615371031]
 script = ExtResource("1_mamws")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=8442249]
 autostart = true

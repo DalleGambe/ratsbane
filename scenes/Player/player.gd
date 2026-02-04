@@ -123,6 +123,11 @@ func handle_meta_upgrades() -> void:
 		
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	number_colliding_bodies += 1
+	if body.is_in_group("enemy"):
+		if body.has_method("on_player_hit"):
+			body.on_player_hit()
+			
+	#TODO: Transfer this to on_player_hit function based on enemy state
 	if((body.is_in_group("enemy") || body.is_in_group("projectile") || body.is_in_group("magic_projectile"))
 	 && body.has_method("trigger_death")):
 		body.trigger_death()		
@@ -159,4 +164,3 @@ func on_ability_upgrade_added(ability_upgrade:AbilityUpgrade, current_upgrades:D
 		match ability_upgrade.id:
 			"rat_player_increase_speed":
 				velocity_component.max_speed = base_speed + base_speed * current_upgrades["rat_player_increase_speed"]["quantity"] * 0.04
-				ability_upgrade.description = tr("NEED_FOR_SPEED_DESCRIPTION").format({"increase_speed_amount": 0.04*100})

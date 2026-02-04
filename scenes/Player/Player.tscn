@@ -1,6 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://deeieuyjt1hgs"]
+[gd_scene format=3 uid="uid://deeieuyjt1hgs"]
 
-[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_c67la"]
+[ext_resource type="Script" uid="uid://dihl512ivvmmb" path="res://scenes/Player/player.gd" id="1_c67la"]
 [ext_resource type="PackedScene" uid="uid://buxfdux1b1bn" path="res://scenes/Component/VelocityComponent/velocity_component.tscn" id="2_h6rtk"]
 [ext_resource type="PackedScene" uid="uid://cr5u7q0jvdgku" path="res://scenes/Component/HealthComponent/health_component.tscn" id="2_myp0c"]
 [ext_resource type="Texture2D" uid="uid://dgep3da82w2tt" path="res://assets/player/player.png" id="2_r6d4t"]
@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://i3b307tef8pr" path="res://scenes/Ability/SwordAbility/plasma_sword_ability.tscn" id="5_g0oyo"]
 [ext_resource type="PackedScene" uid="uid://bo47tcyr1j6uu" path="res://scenes/Component/DeathComponent/death_component.tscn" id="5_spt7t"]
 [ext_resource type="PackedScene" uid="uid://br3ijokbp8x4k" path="res://scenes/Ability/SwordAbility/sword_ability_controller.tscn" id="5_tgp6j"]
-[ext_resource type="Shader" path="res://resources/shaders/glowing_border.gdshader" id="6_7fapf"]
+[ext_resource type="Shader" uid="uid://chvoxsaec20e6" path="res://resources/shaders/glowing_border.gdshader" id="6_7fapf"]
 [ext_resource type="PackedScene" uid="uid://dd8ouvr1dwxs7" path="res://scenes/Component/RandomAudioPlayerComponent/RandomAudioPlayerComponent.tscn" id="6_ynj3w"]
 [ext_resource type="AudioStream" uid="uid://c0c81sf1q7qvy" path="res://assets/audio/sfx/player/rat/hit_1.wav" id="7_xr03i"]
 [ext_resource type="AudioStream" uid="uid://cwn8rwj7wxjrs" path="res://assets/audio/sfx/player/rat/hit_2.wav" id="8_2hwvj"]
 [ext_resource type="AudioStream" uid="uid://drubenko3no6m" path="res://assets/audio/sfx/player/rat/hit_3.wav" id="9_ftqut"]
 [ext_resource type="AudioStream" uid="uid://bblb00wyj85ah" path="res://assets/audio/sfx/player/rat/hit_4.wav" id="10_0y4d7"]
+[ext_resource type="Script" uid="uid://c6vhxs0hlbk05" path="res://scenes/Player/miss_box.gd" id="10_3nxk0"]
 [ext_resource type="AudioStream" uid="uid://bc6d0mnc6qxfl" path="res://assets/audio/sfx/player/rat/footsteps_1.wav" id="12_y170c"]
 [ext_resource type="AudioStream" uid="uid://2x670v0hsh5v" path="res://assets/audio/sfx/player/rat/footsteps_2.wav" id="15_re6em"]
 [ext_resource type="AudioStream" uid="uid://e4otgcnbidqx" path="res://assets/audio/sfx/player/rat/died_1.wav" id="17_32nrt"]
@@ -93,9 +94,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhj3u"]
 _data = {
-"RESET": SubResource("Animation_3ix3o"),
-"died": SubResource("Animation_x6bom"),
-"walk": SubResource("Animation_6l17d")
+&"RESET": SubResource("Animation_3ix3o"),
+&"died": SubResource("Animation_x6bom"),
+&"walk": SubResource("Animation_6l17d")
 }
 
 [sub_resource type="Animation" id="Animation_8c4r8"]
@@ -136,9 +137,9 @@ step = 0.025
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jjsk"]
 _data = {
-"RESET": SubResource("Animation_8c4r8"),
-"blink": SubResource("Animation_mdd4q"),
-"healed": SubResource("Animation_o5y4l")
+&"RESET": SubResource("Animation_8c4r8"),
+&"blink": SubResource("Animation_mdd4q"),
+&"healed": SubResource("Animation_o5y4l")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch114"]
@@ -161,6 +162,9 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_biir8"]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_afv41"]
+radius = 16.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7rry7"]
 shader = ExtResource("6_7fapf")
 shader_parameter/color1 = Color(0.639, 0.361, 0.865, 1)
@@ -170,7 +174,7 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
-shader_parameter/time = null
+shader_parameter/time = 0.0
 shader_parameter/glow_speed = 1.0
 shader_parameter/intensity = 1.5
 shader_parameter/edge_softness = 1.0
@@ -198,59 +202,56 @@ scale_curve = SubResource("CurveTexture_hvlv1")
 [sub_resource type="CircleShape2D" id="CircleShape2D_213dt"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1120920727 groups=["player"]]
+top_level = true
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_c67la")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1588273644]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_yhj3u")
-}
+libraries/ = SubResource("AnimationLibrary_yhj3u")
 
-[node name="VfxAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="VfxAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1259191999]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_2jjsk")
-}
+libraries/ = SubResource("AnimationLibrary_2jjsk")
 
-[node name="VelocityComponent" parent="." instance=ExtResource("2_h6rtk")]
+[node name="VelocityComponent" parent="." unique_id=539242885 instance=ExtResource("2_h6rtk")]
 unique_name_in_owner = true
 max_speed = 156
 acceleration = 35.0
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_myp0c")]
+[node name="HealthComponent" parent="." unique_id=1705347658 instance=ExtResource("2_myp0c")]
 unique_name_in_owner = true
 max_health = 4.0
 
-[node name="AbilityPowersController" parent="." instance=ExtResource("4_jac0x")]
+[node name="AbilityPowersController" parent="." unique_id=867207192 instance=ExtResource("4_jac0x")]
 unique_name_in_owner = true
 
-[node name="Abilities" type="Node" parent="."]
+[node name="Abilities" type="Node" parent="." unique_id=1175637302]
 unique_name_in_owner = true
 
-[node name="SwordAbilityController" parent="Abilities" instance=ExtResource("5_tgp6j")]
+[node name="SwordAbilityController" parent="Abilities" unique_id=392578587 instance=ExtResource("5_tgp6j")]
 MAX_RANGE = 100.0
 plasma_sword_ability = ExtResource("5_g0oyo")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("5_spt7t")]
+[node name="DeathComponent" parent="." unique_id=977437340 node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("5_spt7t")]
 process_mode = 3
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 random_audio_player = NodePath("../RandomDeathSoundPlayerComponent")
 
-[node name="InvincibleFramesTimer" type="Timer" parent="."]
+[node name="InvincibleFramesTimer" type="Timer" parent="." unique_id=964836854]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="DamageIntervalTimer" type="Timer" parent="."]
+[node name="DamageIntervalTimer" type="Timer" parent="." unique_id=1559188650]
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="Healthbar" type="ProgressBar" parent="."]
+[node name="Healthbar" type="ProgressBar" parent="." unique_id=1621832704]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(32, 8)
@@ -265,69 +266,80 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
-[node name="ExpPickUpRadius" type="Area2D" parent="."]
+[node name="ExpPickUpRadius" type="Area2D" parent="." unique_id=1148078021]
 collision_layer = 16
 collision_mask = 0
 
-[node name="ExpPickUpCollisionShape2D" type="CollisionShape2D" parent="ExpPickUpRadius"]
+[node name="ExpPickUpCollisionShape2D" type="CollisionShape2D" parent="ExpPickUpRadius" unique_id=913531033]
 unique_name_in_owner = true
 position = Vector2(1, -4)
 shape = SubResource("CircleShape2D_dd1ib")
 
-[node name="TokenPickUpRadius" type="Area2D" parent="."]
+[node name="TokenPickUpRadius" type="Area2D" parent="." unique_id=848850003]
 collision_layer = 128
 collision_mask = 0
 
-[node name="TokenPickUpCollisionShape2D" type="CollisionShape2D" parent="TokenPickUpRadius"]
+[node name="TokenPickUpCollisionShape2D" type="CollisionShape2D" parent="TokenPickUpRadius" unique_id=749419837]
 unique_name_in_owner = true
 position = Vector2(1, -4)
 shape = SubResource("CircleShape2D_c372c")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1265838225]
 collision_layer = 0
 collision_mask = 104
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1582441013]
 unique_name_in_owner = true
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_biir8")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="MissBox" type="Area2D" parent="." unique_id=1850948111]
+collision_layer = 0
+collision_mask = 360
+script = ExtResource("10_3nxk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MissBox" unique_id=1182653846]
+position = Vector2(1, -4)
+shape = SubResource("CircleShape2D_afv41")
+debug_color = Color(0.2088382, 0.51227844, 1, 0.41960785)
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1281310978]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=509749677]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_7rry7")
 position = Vector2(1, -4)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_r6d4t")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals/Sprite2D"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals/Sprite2D" unique_id=190202807]
 unique_name_in_owner = true
 modulate = Color(0.356863, 0.180392, 0.164706, 1)
 position = Vector2(3.63636, 6.36363)
 emitting = false
-process_material = SubResource("ParticleProcessMaterial_gurq1")
 lifetime = 0.8
 randomness = 1.0
 fixed_fps = 0
 interpolate = false
+process_material = SubResource("ParticleProcessMaterial_gurq1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889711811]
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_213dt")
 
-[node name="HitPlayerComponent" parent="." instance=ExtResource("6_ynj3w")]
+[node name="HitPlayerComponent" parent="." unique_id=2109794240 instance=ExtResource("6_ynj3w")]
 unique_name_in_owner = true
+position = Vector2(1, -1)
 min_pitch = 0.8
 max_pitch = 1.3
 audio_stream_list = Array[AudioStream]([ExtResource("7_xr03i"), ExtResource("8_2hwvj"), ExtResource("9_ftqut"), ExtResource("10_0y4d7")])
 
-[node name="RandomDeathSoundPlayerComponent" parent="." instance=ExtResource("6_ynj3w")]
+[node name="RandomDeathSoundPlayerComponent" parent="." unique_id=110707514 instance=ExtResource("6_ynj3w")]
 position = Vector2(3, -5)
 audio_stream_list = Array[AudioStream]([ExtResource("17_32nrt"), ExtResource("18_u2sjs")])
 
-[node name="RandomFootstepsAudioPlayerComponent" parent="." instance=ExtResource("6_ynj3w")]
+[node name="RandomFootstepsAudioPlayerComponent" parent="." unique_id=1884451509 instance=ExtResource("6_ynj3w")]
 position = Vector2(2, 0)
 audio_stream_list = Array[AudioStream]([ExtResource("12_y170c"), ExtResource("15_re6em")])
 

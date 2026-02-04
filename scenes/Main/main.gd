@@ -32,7 +32,7 @@ func _ready():
 	# Setting up specific stuff related to the active map
 	setup_specific_map_stuff(active_map)
 	
-	# Resetting the values from the modifiers
+	# Resetting the values fr om the modifiers
 	ModifierManager.reset_modifier_values()
 	
 	# Applying the new modifier values

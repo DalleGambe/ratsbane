@@ -40,7 +40,7 @@ func update_progress() -> void:
 	purchase_button.disabled = progress_percentage < 1 or is_sold_out == true
 	if is_sold_out == true:
 		purchase_button.text = "SOLD_OUT_BUTTON"
-	progress_label.text = str(meta_currency) + "/" + str(meta_upgrade.experience_cost)
+	progress_label.text = Util.format_float_to_string(meta_currency) + "/" +  Util.format_float_to_string(meta_upgrade.experience_cost)
 	quantity_label.text = "x%d" % current_quantity
 
 func set_is_being_loading(is_loading:bool) -> void:

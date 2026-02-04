@@ -75,7 +75,6 @@ func perform_attack() -> void:
 			)
 			var swungSoFar:int = 0;
 			for swingsMade in range(total_swings*2 if chop_chop_activated else total_swings):
-				plasma_sword_instance.collision_shape_2d.disabled = false
 				var target_pos: Vector2 = Vector2.ZERO
 				plasma_sword_instance.hit_box.damage = (50 if randi() % 100 > 15 else 100) * additional_damage_percentage 
 				enemies = get_tree().get_nodes_in_group("enemy").filter(func(enemy:Node2D):
@@ -85,11 +84,13 @@ func perform_attack() -> void:
 					target_pos = enemies[index].global_position
 				elif swingsMade == 0 && enemies.size() <= 0:
 					plasma_sword_instance.animation_player.play("disappear")
+					await plasma_sword_instance.animation_player.animation_finished
 					return;
 				elif player:
 					target_pos = player.global_position
 				if(%Timer.is_stopped()):
 					%Timer.start()
+				plasma_sword_instance.collision_shape_2d.disabled = false	
 				await plasma_sword_instance.swing_to(target_pos).finished
 				plasma_sword_instance.is_swinging = false
 				plasma_sword_instance.collision_shape_2d.disabled = true
@@ -129,10 +130,8 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrade:D
 		"sword_rate":
 			var percent_reduction = current_upgrade["sword_rate"]["quantity"] * 0.20
 			%Timer.wait_time = base_wait_time * (1 - percent_reduction)
-			ability_upgrade.update_value("increased_sword_rate",0.20*100)
 		"sword_damage":
 			additional_damage_percentage = 1 + current_upgrade["sword_damage"]["quantity"] * 0.50
-			ability_upgrade.update_value("sword_damage", 0.50*100)
 		"chop_chop":
 			chop_chop_activated = true
 		"plasma_sword":	

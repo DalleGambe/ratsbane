@@ -33,3 +33,19 @@ func _process(delta):
 
 func set_flickering_to(should_flicker:bool) -> void:
 	flicker = should_flicker		
+
+func stutter() -> void:
+	var scale_tween = create_tween()
+	scale_tween.tween_property(self, "scale", Vector2.ONE * -1.10, 0.30)\
+	.set_ease(Tween.EASE_OUT)\
+	.set_trans(Tween. TRANS_CUBIC) 
+	scale_tween.tween_property(self, "scale", Vector2.ONE, 0.30)\
+	.set_ease(Tween.EASE_IN).set_trans (Tween. TRANS_CUBIC)
+	
+func bounce() -> void:
+	var scale_tween = create_tween()
+	scale_tween.tween_property(self, "scale", Vector2.ONE * 1.10, 0.30)\
+	.set_ease(Tween.EASE_OUT)\
+	.set_trans(Tween. TRANS_CUBIC) 
+	scale_tween.tween_property(self, "scale", Vector2.ONE, 0.30)\
+	.set_ease(Tween.EASE_IN).set_trans (Tween. TRANS_CUBIC)

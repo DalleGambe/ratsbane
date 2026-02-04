@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bp7dbuubqjme0"]
+[gd_resource type="TileSet" format=3 uid="uid://bp7dbuubqjme0"]
 
 [ext_resource type="Texture2D" uid="uid://c3qtf22g5bgiv" path="res://assets/environment/tilemap_courtyard.png" id="2_6macr"]
 

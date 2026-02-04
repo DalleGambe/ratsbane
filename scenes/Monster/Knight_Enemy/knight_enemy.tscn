@@ -1,7 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://vv48l7vbua4j"]
+[gd_scene format=3 uid="uid://vv48l7vbua4j"]
 
-[ext_resource type="Script" path="res://scenes/Monster/Knight_Enemy/knight_enemy.gd" id="1_xw86j"]
-[ext_resource type="Script" path="res://scenes/Component/HealthComponent/health_component.gd" id="2_m3mor"]
+[ext_resource type="Script" uid="uid://c34i7p5m5w807" path="res://scenes/Monster/Knight_Enemy/knight_enemy.gd" id="1_xw86j"]
+[ext_resource type="Script" uid="uid://dy24x8ynyniwr" path="res://scenes/Component/HealthComponent/health_component.gd" id="2_m3mor"]
 [ext_resource type="PackedScene" uid="uid://brbgfhymdu1xl" path="res://scenes/Component/ExperienceDropComponent/VialDropComponent/VialDropComponent.tscn" id="3_0vlmh"]
 [ext_resource type="PackedScene" uid="uid://bo47tcyr1j6uu" path="res://scenes/Component/DeathComponent/death_component.tscn" id="3_2vg52"]
 [ext_resource type="PackedScene" uid="uid://buxfdux1b1bn" path="res://scenes/Component/VelocityComponent/velocity_component.tscn" id="3_h60gj"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3g31a0xma1uo" path="res://scenes/Component/HurtboxComponent/hurtbox_component.tscn" id="5_r5mjc"]
 [ext_resource type="PackedScene" uid="uid://cdsgd1iyk7brk" path="res://scenes/Component/BloodSplatterComponent/BloodSplatterComponent.tscn" id="5_vaos3"]
 [ext_resource type="PackedScene" uid="uid://dk5m6g1n17enx" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.tscn" id="5_xgr58"]
-[ext_resource type="Shader" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="6_73m61"]
+[ext_resource type="Shader" uid="uid://cxngm2pwabf0j" path="res://scenes/Component/HitFlashComponent/HitFlashComponent.gdshader" id="6_73m61"]
 [ext_resource type="PackedScene" uid="uid://dd8ouvr1dwxs7" path="res://scenes/Component/RandomAudioPlayerComponent/RandomAudioPlayerComponent.tscn" id="10_mvhdv"]
 [ext_resource type="Texture2D" uid="uid://bd8beekw3e5a6" path="res://assets/weapons/Sword - Knight.png" id="12_nmxny"]
 [ext_resource type="AudioStream" uid="uid://brihuhh4xihrj" path="res://assets/audio/sfx/knight_enemy/death_1.wav" id="14_pk6rf"]
@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://boa17j73inswm" path="res://assets/audio/sfx/knight_enemy/hit_3.wav" id="17_xtqhy"]
 [ext_resource type="AudioStream" uid="uid://b66k6pp8ndr5s" path="res://assets/audio/sfx/knight_enemy/hit_4.wav" id="18_wgviy"]
 [ext_resource type="AudioStream" uid="uid://boovstvbsakhh" path="res://assets/audio/sfx/knight_enemy/hit_5.wav" id="19_6choa"]
-[ext_resource type="Script" path="res://scenes/Component/RandomAudioPlayerComponent/random_audio_player_component.gd" id="19_ivybb"]
+[ext_resource type="Script" uid="uid://bgaakab4p7grn" path="res://scenes/Component/RandomAudioPlayerComponent/random_audio_player_component.gd" id="19_ivybb"]
 
 [sub_resource type="Animation" id="Animation_hcg6v"]
 length = 0.001
@@ -546,24 +546,24 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ig5hr"]
 _data = {
-"RESET": SubResource("Animation_hcg6v"),
-"smack_left": SubResource("Animation_soeha"),
-"smack_left_1": SubResource("Animation_khydn"),
-"smack_left_2": SubResource("Animation_3dbl4"),
-"smack_right_1": SubResource("Animation_2sjmg"),
-"smack_right_2": SubResource("Animation_w6pll"),
-"walk": SubResource("Animation_p1nir")
+&"RESET": SubResource("Animation_hcg6v"),
+&"smack_left": SubResource("Animation_soeha"),
+&"smack_left_1": SubResource("Animation_khydn"),
+&"smack_left_2": SubResource("Animation_3dbl4"),
+&"smack_right_1": SubResource("Animation_2sjmg"),
+&"smack_right_2": SubResource("Animation_w6pll"),
+&"walk": SubResource("Animation_p1nir")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivcgt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3efco"]
 resource_local_to_scene = true
 shader = ExtResource("6_73m61")
-shader_parameter/lerp_percent = null
+shader_parameter/lerp_percent = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lt8do"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q46f1"]
 resource_local_to_scene = true
 shader = ExtResource("6_73m61")
-shader_parameter/lerp_percent = null
+shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qywyu"]
 radius = 9.0
@@ -571,85 +571,84 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yasd3"]
 radius = 6.0
 
-[node name="KnightEnemy" type="CharacterBody2D" groups=["enemy"]]
+[node name="KnightEnemy" type="CharacterBody2D" unique_id=1224288144 groups=["enemy"]]
+z_index = 5
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_xw86j")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=309304455]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_ig5hr")
-}
-autoplay = "walk"
+libraries/ = SubResource("AnimationLibrary_ig5hr")
+autoplay = &"walk"
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node" parent="." unique_id=533096409]
 script = ExtResource("2_m3mor")
 max_health = 150.0
 
-[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_0vlmh")]
+[node name="VialDropComponent" parent="." unique_id=115392256 node_paths=PackedStringArray("health_component") instance=ExtResource("3_0vlmh")]
 drop_percent = 0.7
 health_component = NodePath("../HealthComponent")
 
-[node name="VelocityComponent" parent="." instance=ExtResource("3_h60gj")]
+[node name="VelocityComponent" parent="." unique_id=2087667044 instance=ExtResource("3_h60gj")]
 unique_name_in_owner = true
 max_speed = 112
 
-[node name="KnockbackComponent" parent="." instance=ExtResource("5_l5ahy")]
+[node name="KnockbackComponent" parent="." unique_id=1482143813 instance=ExtResource("5_l5ahy")]
 
-[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_xgr58")]
+[node name="HitFlashComponent" parent="." unique_id=866996226 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_xgr58")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_ivcgt")
+hit_flash_material = SubResource("ShaderMaterial_3efco")
 
-[node name="HitFlashSwordComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_xgr58")]
+[node name="HitFlashSwordComponent" parent="." unique_id=165484413 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_xgr58")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Weapon")
-hit_flash_material = SubResource("ShaderMaterial_lt8do")
+hit_flash_material = SubResource("ShaderMaterial_q46f1")
 
-[node name="BloodSplatterComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_vaos3")]
+[node name="BloodSplatterComponent" parent="." unique_id=758432371 node_paths=PackedStringArray("health_component") instance=ExtResource("5_vaos3")]
 unique_name_in_owner = true
 health_component = NodePath("../HealthComponent")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("3_2vg52")]
+[node name="DeathComponent" parent="." unique_id=1150222810 node_paths=PackedStringArray("health_component", "sprite", "random_audio_player") instance=ExtResource("3_2vg52")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 random_audio_player = NodePath("../RandomSfxDeathPlayerComponent")
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component", "blood_splatter_component", "knockback_component") instance=ExtResource("5_r5mjc")]
+[node name="Hurtbox" parent="." unique_id=1114666885 node_paths=PackedStringArray("health_component", "blood_splatter_component", "knockback_component") instance=ExtResource("5_r5mjc")]
 rotation = -0.00123278
 collision_mask = 12
 health_component = NodePath("../HealthComponent")
 blood_splatter_component = NodePath("../BloodSplatterComponent")
 knockback_component = NodePath("../KnockbackComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1140057976]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_qywyu")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=1619985009]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=260187056]
 position = Vector2(-7.45058e-08, 3.57628e-07)
 texture = ExtResource("4_fisck")
 offset = Vector2(0, -8)
 
-[node name="Weapon" type="Sprite2D" parent="Visuals"]
+[node name="Weapon" type="Sprite2D" parent="Visuals" unique_id=6929896]
 position = Vector2(8, -10)
 scale = Vector2(-0.8, 1)
 texture = ExtResource("12_nmxny")
 offset = Vector2(0, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=982567632]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_yasd3")
 
-[node name="RandomSfxHitPlayerComponent" parent="." instance=ExtResource("10_mvhdv")]
+[node name="RandomSfxHitPlayerComponent" parent="." unique_id=791629175 instance=ExtResource("10_mvhdv")]
 volume_db = 5.0
 audio_stream_list = Array[AudioStream]([ExtResource("15_44d3n"), ExtResource("16_3a38g"), ExtResource("17_xtqhy"), ExtResource("18_wgviy"), ExtResource("19_6choa")])
 
-[node name="RandomSfxDeathPlayerComponent" type="AudioStreamPlayer2D" parent="."]
+[node name="RandomSfxDeathPlayerComponent" type="AudioStreamPlayer2D" parent="." unique_id=1207305162]
 script = ExtResource("19_ivybb")
 min_pitch = 0.8
 max_pitch = 1.2

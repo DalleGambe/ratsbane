@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce7sq7b0mkm3i"]
+[gd_scene format=3 uid="uid://ce7sq7b0mkm3i"]
 
-[ext_resource type="Script" path="res://scenes/Ability/SpearAbility/spear_abillity_controller.gd" id="1_p063x"]
+[ext_resource type="Script" uid="uid://cjxb7fjfra77w" path="res://scenes/Ability/SpearAbility/spear_abillity_controller.gd" id="1_p063x"]
 [ext_resource type="PackedScene" uid="uid://76ob7sbfk0be" path="res://scenes/Ability/SpearAbility/spear_ability.tscn" id="2_gw2sw"]
 
-[node name="SpearAbillityController" type="Node"]
+[node name="SpearAbillityController" type="Node" unique_id=288521366]
 script = ExtResource("1_p063x")
 MAX_RANGE = 250.0
 spear_ability_scene = ExtResource("2_gw2sw")
 
-[node name="CooldownTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1433408708]
 unique_name_in_owner = true
 wait_time = 3.0
 autostart = true

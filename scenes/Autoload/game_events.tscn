@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://oy2kdp0rijc2"]
+[gd_scene format=3 uid="uid://oy2kdp0rijc2"]
 
-[ext_resource type="Script" path="res://scenes/Autoload/game_events.gd" id="1_56thm"]
+[ext_resource type="Script" uid="uid://ciprpmxji52m1" path="res://scenes/Autoload/game_events.gd" id="1_56thm"]
 
-[node name="GameEvents" type="Node"]
+[node name="GameEvents" type="Node" unique_id=1161111587]
 script = ExtResource("1_56thm")

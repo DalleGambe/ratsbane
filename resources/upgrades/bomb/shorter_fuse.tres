@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cljq081u732pg"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://cljq081u732pg"]
 
-[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_rkwwe"]
+[ext_resource type="Script" uid="uid://dswsg1ir02nvj" path="res://resources/upgrades/ability_upgrade.gd" id="1_rkwwe"]
 
 [resource]
 script = ExtResource("1_rkwwe")
@@ -9,6 +9,5 @@ name = "SHORTER_FUSE_NAME"
 description = "SHORTER_FUSE_DESCRIPTION"
 amount_that_can_be_picked = 2
 values = {
-"shorter_fuse_percentage": 15.0
+"shorter_fuse_percentage": 15
 }
-flavour_class = 0

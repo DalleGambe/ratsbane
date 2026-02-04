@@ -79,7 +79,6 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrade:D
 	match ability_upgrade.id:
 		"sharper_spear":
 			additional_damage_percentage = 1 + current_upgrade["sharper_spear"]["quantity"] * 0.20
-			ability_upgrade.update_value("spear_damage",0.20*100)
 		"toothpick_festival":
 			spears_being_thrown = 1 + current_upgrade["toothpick_festival"]["quantity"]
 			ability_upgrade.update_value("spear_amount",spears_being_thrown+1)

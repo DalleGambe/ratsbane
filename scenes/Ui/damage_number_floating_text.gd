@@ -1,7 +1,7 @@
 extends Node2D
 
 func start_animation(text: String):
-	%Label.text = text
+	%Label.text = Util.format_float_to_string(float(text)) if text.is_valid_float() else text
 
 	var tween = create_tween()
 	tween.set_parallel()
@@ -27,4 +27,4 @@ func start_animation(text: String):
 	
 	# Add this new function in the floating text script to return the object to the pool
 func return_to_pool():
-		DamageNumberManager.call_deferred("return_floating_text", self)
+		FloatingTextManager.call_deferred("return_floating_text", self, "damage_number")
